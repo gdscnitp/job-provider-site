@@ -59,3 +59,16 @@ The fact that labourers still are not comfortable with using apps and websites a
 
 ### Approximate count of contributors required:
   8-12
+  
+  
+# Setting up project in your local machine:
+After cloning project:
+## For client side
+  1. cd client
+  2. npm install
+  3. npm start
+  
+## For server side
+  1. cd server
+  2. npm install
+  3. node src/App.js
