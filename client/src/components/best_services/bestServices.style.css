@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.block {    
+    margin: 0 auto;
+}
+
+.headings {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.item {
+    background-color: skyblue;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    transition: transform .4s cubic-bezier(0.25, 0.45, 0.45, 0.95)
+}
+
+.item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 16px rgba(42, 50, 73, 0.16);
+}
