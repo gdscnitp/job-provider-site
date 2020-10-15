@@ -6,6 +6,7 @@ function App() {
     return (
         <div>
             Hello client
+            {/* Our best services carousel (Kunal Prakash) */}
             <Display />
 
             {/* SignUpForCustomer Component (Kunal Prakash) */}
