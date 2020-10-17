@@ -10,11 +10,11 @@
 }
 
 .form-component {
-    background-color: #FFE54C;
+    background-color: #f5f5f5;
     width: 45vw;
     padding: 20px;
     border-radius: 25px;
-    border: 1px solid #FFE54C;
+    border: 1px solid #f5f5f5;
 }
 
 #contact::-webkit-outer-spin-button,
