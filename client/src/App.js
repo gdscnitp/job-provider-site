@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+import SignUpForWorker from "./components/signup_for_worker/SignUpForWorker";
 
 function App() {
   return (
     <div>
-      Hello client
+      <SignUpForWorker />
+      {/*Digvijay Srivastava (SignupForWorker_UI)*/}
     </div>
   );
 }
