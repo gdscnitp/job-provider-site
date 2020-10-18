@@ -1,13 +1,23 @@
-import React from "react";
+import React from 'react';
+import Display from './components/best_services/component.bestServices';
+import SignUpForCustomer from './components/signup_for_customer/signup_for_customer.components.jsx'
 import SignUpForWorker from "./components/signup_for_worker/SignUpForWorker";
-
+  
 function App() {
-  return (
-    <div>
-      <SignUpForWorker />
-      {/*Digvijay Srivastava (SignupForWorker_UI)*/}
-    </div>
-  );
+    return (
+        <div>
+            Hello client
+            {/* Our best services carousel (Kunal Prakash) */}
+            <Display />
+
+            {/* SignUp form for customer (Kunal Prakash) */}
+            <SignUpForCustomer />
+      
+            <SignUpForWorker />
+            {/*Digvijay Srivastava (SignupForWorker_UI)*/}
+        </div>
+    );
+
 }
 
 export default App;
