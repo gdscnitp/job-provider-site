@@ -1,6 +1,10 @@
+
 import React from 'react';
 import Display from './components/best_services/component.bestServices';
 import SignUpForCustomer from './components/signup_for_customer/signup_for_customer.components.jsx'
+  
+import Display from "./components/best_services/component.bestServices";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -11,8 +15,12 @@ function App() {
 
             {/* SignUp form for customer (Kunal Prakash) */}
             <SignUpForCustomer />
+      
+      
+       <Footer />
         </div>
     );
+
 }
 
 export default App;
