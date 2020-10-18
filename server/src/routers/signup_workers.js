@@ -7,9 +7,13 @@ router.post('/workers', async (req, res) => {
     const worker = new Worker(req.body)
     
     try {
+        if(req.body.password !== req.body.confirm_password){
+            res.status(400).send('Password does not match')
+        }
         await worker.save()
         
         const token = await worker.generateAuthToken()
+        //res.json(worker)
         res.status(201).send({ worker, token })
     } catch (e) {
         res.status(400).send(e)

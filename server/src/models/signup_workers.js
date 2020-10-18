@@ -65,10 +65,15 @@ const workerSchema = new mongoose.Schema({
             }
         }
     },
+    /*confirm_password: {
+        type: String,
+        required: true
+    },*/
     tokens: [{
         token: {
             type: String,
-            required: true
+            required: true,
+            trim: true
         }
     }]
 })

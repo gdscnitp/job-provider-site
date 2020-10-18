@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://127.0.0.1:27017/Job-Provider-Site-api', {
+mongoose.connect('mongodb+srv://dscnitp_webdept_worklink:dscnitp_webdept_worklink@cluster0.glrlk.gcp.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true
 })
+
