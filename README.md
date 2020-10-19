@@ -46,7 +46,6 @@ Our project aims at reducing the gap between the people who are willing to work 
 - Website(Mern Stack)
 - Future needs:
   - Machine learning to suggest workers about the availability of work required.   
-  - We can add realtime watch by the person who requires worker. (for e.g: A worker can add there status live for a particular type of work and As it will be live the client can     connect directly to the active labour within a click.) 
   - Cloud to deploy the website
 
 ### Limitations (if any):

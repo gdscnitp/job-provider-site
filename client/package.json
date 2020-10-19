@@ -2,18 +2,13 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-multi-carousel": "^2.5.5",
-    "react-scripts": "3.4.3",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.0"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
