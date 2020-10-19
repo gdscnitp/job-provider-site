@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
+    <div >
       <Navbar/>
       {/* Our best services carousel (Kunal Prakash) */}
       <Display />
