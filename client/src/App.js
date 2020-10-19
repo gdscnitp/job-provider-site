@@ -1,11 +1,22 @@
-import React from 'react';
+
+import React from "react";
+import Display from "./components/best_services/component.bestServices";
 import Navbar from'./components/Navbar';
-import './components/Navbar.css';
+import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
+
+import Footer from "./components/Footer";
+
 function App() {
   return (
-   <div>
-<Navbar/>
-   </div>
+    <div>
+      <Navbar/>
+      {/* Our best services carousel (Kunal Prakash) */}
+      <Display />
+      {/* SignUp form for customer (Kunal Prakash) */}
+      <SignUpForCustomer />
+      <Footer />
+    </div>
+
   );
 }
 
