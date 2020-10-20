@@ -60,11 +60,11 @@ class SignUpForCustomer extends Component {
 					data[element] = this.state[element];
 				}
 			});
-			console.log(data);
+			// console.log(data);
 			axios
 				.post('/api/signup_customer', data)
 				.then((res) => {
-					console.log(res.data);
+					console.log("Successfully Saved");
 				})
 				.catch((error) => {
 					console.log(error);
