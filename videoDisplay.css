@@ -1,0 +1,29 @@
+
+.left{
+padding-top: 10px;
+padding-left:10px;
+  background-color: pink;
+  float: left;
+  width:50%;
+  height:480px;
+}
+.right
+{
+  padding-top: 10px;
+  padding-left:10px;
+  background-color: blue;
+  float:right;
+  width:40%;
+  height:480px;
+}
+.video-js{
+  border-radius:10px;
+}
+.vjs-poster
+{
+  border-radius: 10px;
+}
+
+.video-js .vjs-big-play-button{
+  background-color: #008080 !important ;
+}
