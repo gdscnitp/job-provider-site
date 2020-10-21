@@ -13,7 +13,7 @@ function App() {
       <Display />
       {/* SignUp form for customer (Kunal Prakash) */}
       <SignUpForCustomer />
-      // video component for front page.
+      {/* video component for front page(Ritesh Singh) */}
       <VideoDisplay />
 
       <Footer />
