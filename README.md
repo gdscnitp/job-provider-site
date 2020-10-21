@@ -66,8 +66,8 @@ The fact that labourers still are not comfortable with using apps and websites a
 After cloning project:
 ## For client side
   1. cd client
-  2. npm install
-  3. npm start
+  2. yarn install
+  3. yarn start
   
 ## For server side
   1. cd server

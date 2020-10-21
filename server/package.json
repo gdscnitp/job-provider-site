@@ -4,17 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+
     "start": "node src/App.js",
     "server": "nodemon src/App.js"
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+
     "mongodb": "^3.6.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.5"
+
+    "prettier": "^2.1.2"
+
   }
 }
