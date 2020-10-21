@@ -8,7 +8,7 @@ router.post('/workers', async (req, res) => {
     
     try {
         if(req.body.password !== req.body.confirm_password){
-            res.status(400).send('Password does not match')
+            return res.status(400).send('Password does not match')
         }
         await worker.save()
         
