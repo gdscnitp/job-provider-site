@@ -13,6 +13,7 @@ function Navbar() {
         <ReactBootStrap.Navbar.Brand href="#home" className="brand-logo">
           WorkLink
         </ReactBootStrap.Navbar.Brand>
+        <span id="google_translate_element"></span>
         <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
           <ReactBootStrap.Nav className="ml-auto">
