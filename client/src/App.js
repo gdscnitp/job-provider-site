@@ -1,9 +1,9 @@
-
 import React from 'react';
 import Display from './components/best_services/component.bestServices';
 import SignUpForCustomer from './components/signup_for_customer/signup_for_customer.components.jsx'
 
 import SignUpForWorker from "./components/signup_for_worker/SignUpForWorker";
+import VideoDisplay from "./components/videoDisplay/videoDisplay.js";
 import Footer from "./components/Footer";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
             <SignUpForWorker />
             {/*Digvijay Srivastava (SignupForWorker_UI)*/}
-
+             <VideoDisplay />
       
        <Footer />
 
