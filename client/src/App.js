@@ -1,10 +1,10 @@
 import React from "react";
 import Display from "./components/best_services/component.bestServices";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
 import VideoDisplay from "./components/videoDisplay/videoDisplay.js";
 
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
