@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/App.js",
-    "server": "nodemon src/App.js",
+    "start": "node --path src/App.js",
+    "server": "nodemon \"./src/App.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
