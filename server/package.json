@@ -6,7 +6,7 @@
   "scripts": {
 
     "start": "node src/App.js",
-    "server": "nodemon src/App.js"
+    "server": "nodemon src/App.js",
 
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
@@ -22,7 +22,7 @@
     "mongodb": "^3.6.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.5"
+    "nodemon": "^2.0.5",
     "prettier": "^2.1.2",
     "mongoose": "^5.10.9"
   }
