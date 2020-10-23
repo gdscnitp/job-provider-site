@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node --path src/App.js",
+    "server": "nodemon \"./src/App.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
@@ -16,11 +18,12 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.9",
-    "prettier": "^2.1.2",
-    "validator": "^13.1.17"
+    "mongodb": "^3.6.2",
+    "validator": "^13.1.17",
+    "mongoose": "^5.10.9"
   },
   "devDependencies": {
-    "nodemon": "^2.0.5"
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
   }
 }

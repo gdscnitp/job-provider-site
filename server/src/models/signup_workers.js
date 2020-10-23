@@ -1,104 +1,106 @@
-const mongoose = require('mongoose')
-const validator = require('validator')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const mongoose = require("mongoose");
+const validator = require("validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const workerSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  type_of_work: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  contact: {
+    type: String,
+    unique: true,
+    validate: {
+      validator: function (v) {
+        return /\d{10}/.test(v);
+      },
+      message: (props) => `${props.value} is not a valid phone number!`,
     },
-    type_of_work: {
-        type: String,
-        required: true,
-        trim: true
+    required: [true, "User phone number required"],
+  },
+  email: {
+    type: String,
+    unique: true,
+    trim: true,
+    lowercase: true,
+    validate(value) {
+      if (!validator.isEmail(value)) {
+        throw new Error("Email is invalid");
+      }
     },
-    contact: {
-        type: String,
-        unique: true,
-        validate: {
-            validator: function(v) {
-              return /\d{10}/.test(v);
-            },
-            message: props => `${props.value} is not a valid phone number!`
-          },
-          required: [true, 'User phone number required']
+  },
+  cost_of_work: {
+    type: Number,
+    validate(value) {
+      if (value < 0) {
+        throw new Error("Cost must be a postive number");
+      }
     },
-    email: {
-        type: String,
-        unique: true,
-        trim: true,
-        lowercase: true,
-        validate(value) {
-            if (!validator.isEmail(value)) {
-                throw new Error('Email is invalid')
-            }
-        }
+  },
+  experience: {
+    type: Number,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: String,
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 7,
+    trim: true,
+    validate(value) {
+      if (value.toLowerCase().includes("password")) {
+        throw new Error('Password cannot contain "password"');
+      }
     },
-    cost_of_work: {
-        type: Number,
-        validate(value) {
-            if (value < 0) {
-                throw new Error('Cost must be a postive number')
-            }
-        }
-    },
-    experience: {
-        type: Number
-    },
-    location: {
-        type: String,
-        required: true
-    },
-    address: {
-        type: String
-    },
-    password: {
-        type: String,
-        required: true,
-        minlength: 7,
-        trim: true,
-        validate(value) {
-            if (value.toLowerCase().includes('password')) {
-                throw new Error('Password cannot contain "password"')
-            }
-        }
-    },
-    /*confirm_password: {
+  },
+  /*confirm_password: {
         type: String,
         required: true
     },*/
-    tokens: [{
-        token: {
-            type: String,
-            required: true,
-            trim: true
-        }
-    }]
-})
+  tokens: [
+    {
+      token: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+    },
+  ],
+});
 
 workerSchema.methods.generateAuthToken = async function () {
-    const worker = this
-    const token = jwt.sign({ _id: worker._id.toString() }, 'thisismynewcourse')
+  const worker = this;
+  const token = jwt.sign({ _id: worker._id.toString() }, "thisismynewcourse");
 
-    worker.tokens = worker.tokens.concat({ token })
-    await worker.save()
+  worker.tokens = worker.tokens.concat({ token });
+  await worker.save();
 
-    return token
-}
+  return token;
+};
 
 // Hash the plain text password before saving
-workerSchema.pre('save', async function (next) {
-    const worker = this
+workerSchema.pre("save", async function (next) {
+  const worker = this;
 
-    if (worker.isModified('password')) {
-        worker.password = await bcrypt.hash(worker.password, 8)
-    }
+  if (worker.isModified("password")) {
+    worker.password = await bcrypt.hash(worker.password, 8);
+  }
 
-    next()
-})
+  next();
+});
 
-const Worker = mongoose.model('Worker', workerSchema)
+const Worker = mongoose.model("Worker", workerSchema);
 
-module.exports = Worker
+module.exports = Worker;
