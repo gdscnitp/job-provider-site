@@ -31,10 +31,10 @@ class SignUpForCustomer extends Component {
     super(props);
     this.state = {
       name: "",
-      work: "",
+      type_of_work: "",
       contact: "",
       email: "",
-      cost: "",
+      cost_of_work: "",
       experience: "",
       location: "",
       address: "",
@@ -60,11 +60,11 @@ class SignUpForCustomer extends Component {
           data[element] = this.state[element];
         }
       });
-      // console.log(data);
+      console.log(data);
       axios
         .post("/api/signup_customer", data)
         .then((res) => {
-          console.log("Successfully Saved");
+          console.log(res.data);
         })
         .catch((error) => {
           console.log(error);
@@ -89,8 +89,8 @@ class SignUpForCustomer extends Component {
             />
 
             <InputForm
-              name="work"
-              value={this.state.work}
+              name="type_of_work"
+              value={this.state.type_of_work}
               type="text"
               placeholder="ex. Plumber, Carpenter, Painter"
               onChange={this.handleChange}
@@ -121,8 +121,8 @@ class SignUpForCustomer extends Component {
             />
 
             <InputForm
-              name="cost"
-              value={this.state.cost}
+              name="cost_of_work"
+              value={this.state.cost_of_work}
               type="number"
               onChange={this.handleChange}
               placeholder="Cost of Work"
