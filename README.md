@@ -89,6 +89,6 @@ You can check that the previous command worked by running `git remote -v`. You s
 $ git remote -v
 origin  https://github.com/YOUR_GITHUB_USER_NAME/job-provider-site (fetch)
 origin  https://github.com/YOUR_GITHUB_USER_NAME/job-provider-site (push)
-upstream        https://github.com/anitab-org/job-provider-site.git (fetch)
-upstream        https://github.com/anitab-org/job-provider-site.git (push)
+upstream        https://github.com/dscnitp/job-provider-site.git (fetch)
+upstream        https://github.com/dscnitp/job-provider-site.git (push)
 ```
