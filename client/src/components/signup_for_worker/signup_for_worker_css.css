@@ -1,0 +1,68 @@
+.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.form-header {
+  font-size: 32px;
+  background-color: #c9acbe;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 5px 5px 8px #888888;
+}
+
+.form-component {
+  background-color: hsl(173, 15%, 88%);
+  width: 65vw;
+  padding: 10px;
+  border-radius: 10px;
+  border: 3px solid #424039;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+#contact::-webkit-outer-spin-button,
+#contact::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#contact[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#button:hover {
+  background-color: black;
+  color: #ffe54c;
+}
+
+@media only screen and (max-width: 1024px) {
+  .form-component {
+    width: 60vw;
+  }
+}
+
+/* TABLETS PORTRAIT */
+@media only screen and (max-width: 768px) {
+  .form-component {
+    width: 70vw;
+  }
+}
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (max-width: 480px) {
+  .form-component {
+    width: 80vw;
+  }
+  .form-header {
+    font-size: 25px;
+  }
+}
+
+/* SMARTPHONES PORTRAIT */
+@media only screen and (max-width: 300px) {
+  .form-component {
+    width: 90vw;
+  }
+}
