@@ -6,8 +6,8 @@ import axios from "axios";
 
 // reusable component to render input field whenever needed
 const InputForm = ({ label, name, type, placeholder, textArea, ...props }) => (
-  <Form.Field {...props}>
-    <label>{label}</label>
+  <Form.Field {...props} width={16}>
+    {/* <label>{label}</label> */}
     {textArea ? (
       <TextArea
         name={name}
@@ -21,6 +21,7 @@ const InputForm = ({ label, name, type, placeholder, textArea, ...props }) => (
         type={type}
         placeholder={placeholder}
         {...props}
+        id="input"
       ></input>
     )}
   </Form.Field>
@@ -77,7 +78,7 @@ class SignUpForCustomer extends Component {
       <div className="form-div">
         <h1 className="form-header">Sign Up (Customer)</h1>
         <div className="form-component">
-          <Form>
+          <Form id="form">
             <InputForm
               name="name"
               value={this.state.name}
@@ -88,7 +89,7 @@ class SignUpForCustomer extends Component {
               required
             />
 
-            <InputForm
+            {/* <InputForm
               name="type_of_work"
               value={this.state.type_of_work}
               type="text"
@@ -97,7 +98,7 @@ class SignUpForCustomer extends Component {
               label="Type of Work"
               required
               textArea="TextArea"
-            />
+            /> */}
 
             <InputForm
               name="contact"
@@ -107,7 +108,6 @@ class SignUpForCustomer extends Component {
               onChange={this.handleChange}
               id="contact"
               label="Contact"
-              width="8"
               required
             />
 
@@ -120,7 +120,7 @@ class SignUpForCustomer extends Component {
               label="Email"
             />
 
-            <InputForm
+            {/* <InputForm
               name="cost_of_work"
               value={this.state.cost_of_work}
               type="number"
@@ -150,16 +150,15 @@ class SignUpForCustomer extends Component {
               label="Location"
               width="8"
               required
-            />
+            /> */}
 
             <InputForm
               name="address"
               value={this.state.address}
               type="text"
               onChange={this.handleChange}
-              placeholder="Adress"
+              placeholder="Address"
               label="Address"
-              textArea="TextArea"
             />
 
             <InputForm
@@ -182,7 +181,7 @@ class SignUpForCustomer extends Component {
               required
             />
 
-            <Button type="submit" secondary id="button" onClick={this.onSubmit}>
+            <Button  type="submit" id="button" onClick={this.onSubmit}>
               Sign Up
             </Button>
           </Form>
