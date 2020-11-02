@@ -1,0 +1,43 @@
+
+.content {
+    text-align: center;
+    margin:50px;
+  }
+  
+  .header{
+      text-align: center;
+  }
+   .note{
+    background-color: #ccc;
+    box-shadow: 0 2px 5px #ccc;
+    margin-bottom: 30px;
+   }
+   .image{
+     float: right;
+     margin-right: 100px;
+     margin-bottom: 10px;
+   }
+   
+   img{
+     border-radius: 50%;
+     margin-top: 5px;
+   }
+  
+  .slides {
+    position: relative;
+  }
+  
+  .slides .slick-prev,
+  .slides .slick-next {
+    position: absolute;
+    top: 50%;
+    z-index:1;
+  }
+  
+  .slides .slick-prev {
+    left: 5%;
+  }
+  
+  .slides .slick-next {
+    right: 5%;
+  }
