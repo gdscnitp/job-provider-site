@@ -10,6 +10,14 @@ const auth = require('../middleware/auth')
 // 	Customer.find({}).then((data) => res.json(data));
 // });
 
+var RateLimit = require('express-rate-limit');
+var limiter = new RateLimit({
+	windowMs: 1 * 60 * 1000, // 1 minute
+	max: 5,
+});
+
+router.use(limiter);
+
 router.use(express.json());
 
 router.post("/signup_customer", async (req, res) => {
