@@ -1,5 +1,6 @@
 import React from 'react'
 import "./customerProfile.style.css"
+import edit_button from "../../assests/edit_button.png"
 
 class CustomerProfile extends React.Component{
     constructor(props){
@@ -20,12 +21,25 @@ class CustomerProfile extends React.Component{
                         <div className="profile-image">
                             {/* <img alt="profile"></img> */}
                         </div>
+                        <div className="update-image"><button className="update-button">+</button></div>
                         <div className="profile-info">
                             <div className="overlap"></div>
-                            <div className="other-info">Other info</div>
-                            <div className="other-info">Other info</div>
-                            <div className="other-info">Other info</div>
-                            <div className="other-info">Other info</div>
+                            <div className="other-info">
+                                Other info
+                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
+                            </div>
+                            <div className="other-info">
+                                Other info
+                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
+                            </div>
+                            <div className="other-info">
+                                Other info
+                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
+                            </div>
+                            <div className="other-info">
+                                Other info 
+                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
+                            </div>
                         </div>
                     </div>
                     <div className="service-used">
