@@ -1,6 +1,7 @@
 import React from "react";
 import Display from "./components/best_services/component.bestServices";
 import Navbar from "./components/Navbar/Navbar";
+import SignUpForWorker from "./components/signup_for_worker/SignupWorker";
 import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
 import VideoDisplay from "./components/videoDisplay/videoDisplay.js";
 
@@ -12,6 +13,8 @@ function App() {
       <Navbar />
       {/* Our best services carousel (Kunal Prakash) */}
       <Display />
+      {/*SignUp form for worker (Digvijay Srivastava)*/}
+      <SignUpForWorker />
       {/* SignUp form for customer (Kunal Prakash) */}
       <SignUpForCustomer />
       {/* video component for front page(Ritesh Singh) */}

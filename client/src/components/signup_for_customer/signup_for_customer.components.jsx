@@ -181,7 +181,7 @@ class SignUpForCustomer extends Component {
               required
             />
 
-            <Button  type="submit" id="button" onClick={this.onSubmit}>
+            <Button type="submit" id="button" onClick={this.onSubmit}>
               Sign Up
             </Button>
           </Form>
