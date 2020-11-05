@@ -10,7 +10,7 @@ require("dotenv").config();
 // Creating Express App
 
 app.use(bodyParser.json());
-app.use("/api", routes);
+app.use(routes);
 app.use(workerRouter);
 
 const port = process.env.PORT || 5000;
