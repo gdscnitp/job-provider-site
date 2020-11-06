@@ -2,16 +2,69 @@ import React from 'react'
 import "./customerProfile.style.css"
 import edit_button from "../../assests/edit_button.png"
 
+const OtherInfo = ({info, name, editable, editableName, handleChange, handleSubmit, changeInfo}) => {
+    return(
+        <>
+            {
+            editable 
+            ? 
+            <div className="other-info">
+                <input name={name} type="text" value={info} className="edit-input" onChange={handleChange}/>
+                <input name={editableName} className="" onClick={handleSubmit} type="button" value="OK"/>
+            </div>
+            :
+            <div className="other-info">
+                <div className="info-title">{info}</div>
+                <input  name={editableName} className="edit-button" onClick={changeInfo} type="image" alt="Login" src={edit_button}></input>
+            </div>
+            }
+        </>
+    )
+}
+
 class CustomerProfile extends React.Component{
     constructor(props){
         super(props);
 
         this.state={
-            // here will be states....
+            info1: "Other info",
+            info2: "Other info",
+            info3: "Other info",
+            info4: "Other info",
+            editable1: false,
+            editable2: false,
+            editable3: false,
+            editable4: false
         }
+
+    }
+
+    changeInfo = (event) => {
+
+        this.setState({
+            [event.target.name]: true
+        })
+
+        console.log(event.target.name)
+    }
+
+    handleChange = (event) => {
+        const val = event.target.value;
+        this.setState({
+            [event.target.name]: val
+        })
+    }
+
+    handleSubmit = (event) => {
+        this.setState({
+            [event.target.name]: false
+        })
+
     }
 
     render(){
+        const {info1, info2, info3, info4} = this.state
+        const {editable1, editable2, editable3, editable4} = this.state
         return (
             <div className="customer-profile">
                 <h2 className="profile-heading">YOUR PROFILE</h2>
@@ -21,25 +74,53 @@ class CustomerProfile extends React.Component{
                         <div className="profile-image">
                             {/* <img alt="profile"></img> */}
                         </div>
-                        <div className="update-image"><button className="update-button">+</button></div>
+
+                        <div className="update-image">
+                            <input type="file" className="update-button" title="upload image" accept="image/*"/>
+                        </div>
+
                         <div className="profile-info">
                             <div className="overlap"></div>
-                            <div className="other-info">
-                                Other info
-                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
-                            </div>
-                            <div className="other-info">
-                                Other info
-                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
-                            </div>
-                            <div className="other-info">
-                                Other info
-                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
-                            </div>
-                            <div className="other-info">
-                                Other info 
-                                <button className="edit-button"> <img alt="edit" src={edit_button} /> </button>
-                            </div>
+
+                            <OtherInfo 
+                                info={info1} 
+                                name="info1"
+                                editable={editable1} 
+                                editableName="editable1"
+                                handleChange={this.handleChange} 
+                                handleSubmit={this.handleSubmit} 
+                                changeInfo={this.changeInfo} 
+                            />
+
+                            <OtherInfo 
+                                info={info2} 
+                                name="info2"
+                                editable={editable2} 
+                                editableName="editable2"
+                                handleChange={this.handleChange} 
+                                handleSubmit={this.handleSubmit} 
+                                changeInfo={this.changeInfo} 
+                            />
+
+                            <OtherInfo 
+                                info={info3} 
+                                name="info3"
+                                editable={editable3} 
+                                editableName="editable3"
+                                handleChange={this.handleChange} 
+                                handleSubmit={this.handleSubmit} 
+                                changeInfo={this.changeInfo} 
+                            />
+
+                            <OtherInfo 
+                                info={info4} 
+                                name="info4"
+                                editable={editable4} 
+                                editableName="editable4"
+                                handleChange={this.handleChange} 
+                                handleSubmit={this.handleSubmit} 
+                                changeInfo={this.changeInfo} 
+                            />
                         </div>
                     </div>
                     <div className="service-used">
