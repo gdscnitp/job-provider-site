@@ -14,11 +14,11 @@ const serviceSchema = mongoose.Schema({
 		required: true,
 	},
 	worker_contact: {
-		type: Number,
+		type: String,
 		required: true,
 	},
 	customer_contact: {
-		type: Number,
+		type: String,
 		required: true,
 	},
 	date_for_booking: {
