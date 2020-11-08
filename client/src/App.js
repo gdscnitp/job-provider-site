@@ -4,7 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import SignUpForWorker from "./components/signup_for_worker/SignupWorker";
 import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
 import VideoDisplay from "./components/videoDisplay/videoDisplay.js";
-
+import "./components/Star-rating/StarRating.css";
+import StarRating from "./components/Star-rating/StarRating.jsx";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
       <SignUpForWorker />
       {/* SignUp form for customer (Kunal Prakash) */}
       <SignUpForCustomer />
+      <StarRating />
       {/* video component for front page(Ritesh Singh) */}
       <VideoDisplay />
-
       <Footer />
     </div>
   );
