@@ -3,6 +3,18 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+//feedback Schema
+
+const FeedbackSchema = new mongoose.Schema({
+  rating: {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 5,
+  },
+  review: String,
+});
+
 const workerSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -65,6 +77,8 @@ const workerSchema = new mongoose.Schema({
       }
     },
   },
+  feedback: FeedbackSchema,
+
   /*confirm_password: {
         type: String,
         required: true
