@@ -50,7 +50,7 @@ const Display = () => {
     "Get 1 week free trial",
     "Get upto 30% off on your first booking",
   ];
-
+ 
   return (
     <div>
       <h1 className="headings">OUR BEST SERVICES</h1>
