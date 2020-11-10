@@ -1,0 +1,352 @@
+.customer-profile {
+    box-sizing: border-box;
+    padding: 50px 0;
+}
+
+.profile-heading {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/*   Section one including profile info and service used  */
+.section-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.profile-detail {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    position: relative;
+    margin-bottom: 120px;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    background-color: #fde9e9;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.update-image {
+    z-index: 11;
+    text-align: center;
+    position: absolute;
+    right: 25%;
+    top: 70%;
+}
+
+.update-button {
+    width: 40px;
+    height: 40px;
+    visibility: hidden;
+}
+
+.update-button::before{
+    content: "+";
+    visibility: visible;
+    cursor: pointer;
+    background-color: #7EF999;
+    font-size: 24px;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 5px 12px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
+
+
+
+
+.update-button:focus{
+    border: none;
+    outline: none;
+    background-color: #1c8ef8;
+}
+
+.profile-info-professional {
+    background-color: #c4c4c4;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.overlap {
+    height: 50px;
+    width: 100%;
+}
+
+.other-info-professional {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    margin-left: 10%;
+    padding: 10px 0 5px 0;
+}
+
+
+.edit-button:focus {
+    outline: none;
+}
+
+.edit-input {
+    width: 60%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    color: white;
+    background-color: #c2c2c2;
+}
+
+.service-used-professional {
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 150px auto 150px;
+    justify-content: center;
+    grid-gap: 15px;
+}
+
+
+.service-used {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px 80px 15px;
+}
+
+.service-box {
+    width: 100%;
+    height: 50px;
+    background-color: #e7e7e7;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.service-logo {
+    width: 40px;
+    height: 40px;
+    background-color: #c4c4c4;
+    font-size: 12px;
+}
+
+#service-link {
+    color: white;
+    text-decoration: none;
+    background-color: #ffe2e2;
+    font-size: 10px;
+}
+
+.service-used-side{
+    height: 200px;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+/* ---------------  section two for photos and review section  ------- */
+.section-two {
+    display: flex;
+    justify-content: space-around;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    border-top: 2px solid black;
+}
+
+.featured-photo {
+    border-right: 2px solid black;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.featured-heading {
+    margin: 0 0 15px 0;
+}
+
+.grid-professional {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+
+    gap: 10px 10px;
+    justify-items: center;
+    align-self: center;
+}
+
+.grid-box-professional {
+    width: 50px;
+    height: 42px;
+    background-color: #c4c4c4;
+}
+
+.reviews {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.reviews-heading {
+    align-self: center;
+    margin: 0 0 15px 0;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews-box {
+    padding: 10px 10px;
+    border-radius: 40px;
+    background-color: #c4c4c4;
+    margin: 5px 20px;
+}
+
+
+@media only screen and (max-width: 1024px){
+
+    .service-used-professional {
+        width: 100%;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 150px auto 150px;
+        justify-content: center;
+        gap: 2px;
+    }
+
+    .service-used-side {
+        width: 100px;
+        justify-self: center;
+    }
+}
+
+/* TABLETS PORTRAIT */
+@media only screen and (max-width: 760px){
+    .profile-image{
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-detail {
+        width: 400px;
+    }
+
+    .service-used {
+        width: 360px;
+    }
+
+    .service-used-side {
+        width: 100px;
+    }
+
+    .section-two {
+        width: 469px;
+    }
+    .heading {
+        font-size: 24px;
+    }
+
+    .grid-professional {
+        grid-template-columns: repeat(4, 40px);
+        gap: 7px 7px;
+    }
+    
+    .grid-box-professional {
+        width: 40px;
+        height: 40px;
+    }
+
+    .reviews-box {
+        margin: 5px;
+        font-size: 12px;
+    }
+
+    .update-image {
+        right: 25%;
+        top: 70%;
+    }
+}
+
+@media only screen and (max-width: 640px){
+    .service-used-side{
+        visibility: hidden;
+    }
+
+}
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (max-width: 480px){
+    .profile-image{
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-detail {
+        width: 300px;
+    }
+
+    .service-used {
+        width: 300px;
+    }
+
+    .service-heading {
+        font-size: 20px;
+    }
+
+    .section-two {
+        width: 300px;
+    }
+
+    .heading {
+        font-size: 16px;
+    }
+
+    .grid-professional {
+        grid-template-columns: repeat(4, 30px);
+        gap: 5px 5px;
+    }
+    
+    .grid-box-professional {
+        width: 30px;
+        height: 30px;
+    }
+
+    .reviews-box {
+        margin: 5px;
+        font-size: 8px;
+    }
+
+    .update-image {
+        right: 20%;
+        top: 75%;
+    }
+}
+
+/* SMARTPHONES PORTRAIT */
+@media only screen and (max-width: 300px){
+
+}

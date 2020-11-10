@@ -10,6 +10,8 @@ import CustomerProfile from "./components/customer_profile/customerProfile.compo
 import "./components/Star-rating/StarRating.css";
 import StarRating from "./components/Star-rating/StarRating.jsx";
 
+import ProfessionalProfile from "./components/professional_profile/professional.profile"
+
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -27,7 +29,7 @@ function App() {
       <VideoDisplay />
       <CustomerProfile />
 
-
+      <ProfessionalProfile />
       <Footer />
     </div>
   );
