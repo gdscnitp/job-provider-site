@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Col, Form, InputGroup, FormControl } from "react-bootstrap";
+import { Card, InputGroup } from "react-bootstrap";
 import { Label } from "semantic-ui-react";
 
 export class SetPreferences extends Component {
