@@ -17,12 +17,16 @@ import image1 from "./assests/image 1.jpg";
 import image2 from "./assests/image 1 (1).jpg";
 import image3 from "./assests/image 1 (2).jpg";
 import MainCarousel from "./components/set_preferences/MainCarousel";
+import SetPreferences from "./components/set_preferences/SetPreferences";
 
 function App() {
   return (
     <div className="container-fluid">
       <Navbar />
+      {/*Main Carousel and Set preferences Card(Pawan Singh)*/}
       <MainCarousel />
+      <SetPreferences />
+
       {/* Our best services carousel (Kunal Prakash) */}
       <Display />
 
@@ -49,10 +53,10 @@ function App() {
           "demo2",
         ]}
       />
-      {navigator.geolocation.getCurrentPosition(function (position) {
+      {/*navigator.geolocation.getCurrentPosition(function (position) {
         console.log("Latitude is :", position.coords.latitude);
         console.log("Longitude is :", position.coords.longitude);
-      })}
+      })*/}
       {/*SignUp form for worker (Digvijay Srivastava)*/}
 
       <SignUpForWorker />

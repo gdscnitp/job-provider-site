@@ -21,8 +21,8 @@ export default function MainCarousel() {
         </h3>
       </div>
       <Carousel
-        style={{ width: "80vw", height: "50vh" }}
-        className="mx-auto"
+        style={{ width: "", height: "" }}
+        className="mx-auto col-12 col-md-10"
         prevIcon={
           <FaArrowCircleLeft size="3.5rem" color="black" opacity="0.7" />
         }
@@ -30,36 +30,36 @@ export default function MainCarousel() {
           <FaArrowCircleRight size="3.5rem" color="black" opacity="0.7" />
         }
       >
-        <Carousel.Item style={{ width: "80vw", height: "50vh" }}>
+        <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
             src={require("../../assests/image 1.jpg")}
             alt="First slide"
-            style={{ width: "80vw", height: "50vh" }}
+            style={{ width: "", height: "" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item style={{ width: "80vw", height: "50vh" }}>
+        <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
             src={require("../../assests/image 1.jpg")}
             alt="First slide"
-            style={{ width: "80vw", height: "50vh" }}
+            style={{ width: "", height: "" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item style={{ width: "80vw", height: "50vh" }}>
+        <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
             src={require("../../assests/image 1.jpg")}
             alt="First slide"
-            style={{ width: "80vw", height: "50vh" }}
+            style={{ width: "", height: "" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
             <h3>First slide label</h3>
