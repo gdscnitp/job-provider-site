@@ -11,20 +11,22 @@ import "./components/Star-rating/StarRating.css";
 import StarRating from "./components/Star-rating/StarRating.jsx";
 
 import Footer from "./components/Footer/Footer";
-import CarouselComponent from "./components/Carousel/CarouselComponent";
+import CarouselComponent from "./components/section_carousel/CarouselComponent";
 
 import image1 from "./assests/image 1.jpg";
 import image2 from "./assests/image 1 (1).jpg";
 import image3 from "./assests/image 1 (2).jpg";
+import MainCarousel from "./components/set_preferences/MainCarousel";
 
 function App() {
   return (
-    <div>
+    <div className="container-fluid">
       <Navbar />
+      <MainCarousel />
       {/* Our best services carousel (Kunal Prakash) */}
       <Display />
 
-      {/* Modify the headers, images and paras props of CarouselComponent as shown below to obtain desired carousel*/}
+      {/* Modify the headers, images and paras props of CarouselComponent as shown below to obtain desired carousel (Pawan Singh)*/}
       <CarouselComponent
         title={"Section"}
         headers={["Lorem", "Ipsum", "Dolor"]}
@@ -47,7 +49,10 @@ function App() {
           "demo2",
         ]}
       />
-
+      {navigator.geolocation.getCurrentPosition(function (position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+      })}
       {/*SignUp form for worker (Digvijay Srivastava)*/}
 
       <SignUpForWorker />
