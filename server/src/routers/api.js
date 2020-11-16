@@ -96,7 +96,41 @@ router.get('/customer/:id/avatar', async (req, res) => {
   }
 })
 
-//editing proffessional profile:-
+
+// rate &  REVIEW route
+router.post("/rate_review",auth,async (req,res)=>{
+
+  try{
+
+    if(req.customer)
+    {
+    req.customer.feedback={rating:req.body.rating ,review:req.body.review};
+    await req.customer.save().then(() =>
+    {
+      console.log('Added to customer database')
+    })
+
+  }
+  else if(req.worker){
+
+    req.worker.feedback={rating:req.body.rating ,review:req.body.review};
+    await req.worker.save().then(() =>
+    {
+      console.log('Added to worker database ')
+    })
+
+  }
+  res.status(200).send()
+  }
+  catch(e)
+  {
+    res.status(400).send(e);
+  }
+})
+module.exports = router;
+
+
+
 
 router.patch('/worker/me', auth , async (req, res) => {
   const updates = Object.keys(req.body)
@@ -149,6 +183,7 @@ router.get('/worker/:id/avatar', async (req, res) => {
       res.status(404).send()
   }
 })
+
 
 
 module.exports = router;
