@@ -92,6 +92,9 @@ const workerSchema = new mongoose.Schema({
       },
     },
   ],
+  avatar: {
+      type: Buffer
+  }
 });
 
 workerSchema.methods.generateAuthToken = async function () {

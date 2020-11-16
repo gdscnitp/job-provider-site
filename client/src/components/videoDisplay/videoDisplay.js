@@ -9,7 +9,7 @@ class VideoApp extends Component {
         <ReactPlayer
         // for adding a local video put the mp4 file in public/videos and change the url to videos/file_name.mp4
           url='https://www.youtube.com/watch?v=MhkGQAoc7bc'
-          playing
+          paused
           controls
           muted
           className='react-player'

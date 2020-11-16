@@ -32,12 +32,12 @@ class SignUpForCustomer extends Component {
     super(props);
     this.state = {
       name: "",
-      type_of_work: "",
+      // type_of_work: "",
       contact: "",
       email: "",
-      cost_of_work: "",
-      experience: "",
-      location: "",
+      // cost_of_work: "",
+      // experience: "",
+      // location: "",
       address: "",
       password: "",
       confirm_password: "",

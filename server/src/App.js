@@ -4,6 +4,7 @@ const workerRouter = require("./routers/signup_workers");
 const routes = require("./routers/api");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const book_service = require("./routers/book-services");
 require("./db/mongoose");
 require("dotenv").config();
 
@@ -12,13 +13,14 @@ require("dotenv").config();
 app.use(bodyParser.json());
 app.use(routes);
 app.use(workerRouter);
+app.use(book_service);
 
 const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  res.send("Hello world");
+	res.send("Hello world");
 });
 
 app.listen(port, () => {
-  console.log("Server is up on the port " + port);
+	console.log("Server is up on the port " + port);
 });

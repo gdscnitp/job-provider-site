@@ -4,9 +4,13 @@ const Worker = require('../models/signup_workers')
 
 const auth = async (req,res,next) => {
     try {
+    //  console.log("enetered try")
         const token = req.header('Authorization').replace('Bearer ', '')
         const decoded  = jwt.verify(token, process.env.JWT_SECRET)
         const customer = await Customer.findOne({_id: decoded._id, 'tokens.token': token})
+
+        console.log(token);
+
         if(customer)
         {
           req.token = token
@@ -14,6 +18,7 @@ const auth = async (req,res,next) => {
           next()
         }
         if(!customer) {
+
             const worker = await Worker.findOne({_id: decoded._id, 'tokens.token':token});
             if(!worker)
             {
