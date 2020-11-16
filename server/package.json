@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node --path src/App.js",
@@ -28,5 +27,6 @@
   "devDependencies": {
     "nodemon": "^2.0.6",
     "prettier": "^2.1.2"
-  }
+  },
+  "description": ""
 }
