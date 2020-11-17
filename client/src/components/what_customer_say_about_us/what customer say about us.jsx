@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -67,7 +66,7 @@ class WhatCustomerSayAboutUs extends Component{
 
         <div className="note">
           <div className="image">
-           <img  alt="image" width="100px" height="100px" src={props.url}/>
+           <img  alt="Customer image " width="100px" height="100px" src={props.url}/>
            <h4>{props.name}</h4>
            </div>
           <p className="content" >{props.content}</p> 
