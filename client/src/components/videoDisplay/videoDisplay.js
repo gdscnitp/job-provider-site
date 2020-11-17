@@ -13,7 +13,6 @@ class VideoApp extends Component {
           controls
           muted
           className='react-player'
-          width='40%'
         />
       </div>
     );

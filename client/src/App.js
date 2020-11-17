@@ -1,5 +1,6 @@
 import React from "react";
 import Display from "./components/best_services/component.bestServices";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import SignUpForWorker from "./components/signup_for_worker/SignupWorker";
 import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
@@ -17,23 +18,27 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
       {/* Our best services carousel (Kunal Prakash) */}
+      <Switch>
+        <Route path="/book_service" component={BookService} />
+        <Route path="/best_services" exact component={Display} />
+        <Route path="/signup_worker" exact component={SignUpForWorker} />
+        <Route path="/signup_customer" exact component={SignUpForCustomer} />
+        <Route path="/profile_customer" exact component={CustomerProfile} />
+        <Route path="/profile_worker" exact component={ProfessionalProfile} />
+      </Switch>
       <BookService />
       {/*Book Service Modal (Digvijay Srivastava)*/}
       <Display />
-      {/*SignUp form for worker (Digvijay Srivastava)*/}
-      <SignUpForWorker />
-      {/* SignUp form for customer (Kunal Prakash) */}
-      <SignUpForCustomer />
-      <StarRating />
-      {/* video component for front page(Ritesh Singh) */}
-      <VideoDisplay />
-      <CustomerProfile />
-      <ProfessionalProfile />
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+        {/* video component for front page(Ritesh Singh) */}
+        <VideoDisplay />
+        <StarRating />
+      </div>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

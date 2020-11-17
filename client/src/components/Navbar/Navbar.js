@@ -10,7 +10,7 @@ function Navbar() {
         variant="dark"
         className="navbar"
       >
-        <ReactBootStrap.Navbar.Brand href="#home" className="brand-logo">
+        <ReactBootStrap.Navbar.Brand href="/" className="brand-logo">
           WorkLink
         </ReactBootStrap.Navbar.Brand>
         <span id="google_translate_element"></span>
@@ -28,18 +28,21 @@ function Navbar() {
               id="basic-nav-dropdown"
               className="nav-option"
             >
-              <ReactBootStrap.NavDropdown.Item href="#action/3.1">
-                Pricing
+              <ReactBootStrap.NavDropdown.Item href="/profile_worker">
+                Worker Profile
               </ReactBootStrap.NavDropdown.Item>
-              <ReactBootStrap.NavDropdown.Item href="#action/3.2">
-                Another action
+              <ReactBootStrap.NavDropdown.Item href="/profile_customer">
+                Customer Profile
               </ReactBootStrap.NavDropdown.Item>
-              <ReactBootStrap.NavDropdown.Item href="#action/3.3">
-                Something
+              <ReactBootStrap.NavDropdown.Item href="/signup_worker">
+                Worker Sign Up
+              </ReactBootStrap.NavDropdown.Item>
+              <ReactBootStrap.NavDropdown.Item href="/signup_customer">
+                Customer Sign Up
               </ReactBootStrap.NavDropdown.Item>
               <ReactBootStrap.NavDropdown.Divider />
-              <ReactBootStrap.NavDropdown.Item href="#action/3.4">
-                Separated link
+              <ReactBootStrap.NavDropdown.Item href="/signup_customer">
+                Other
               </ReactBootStrap.NavDropdown.Item>
             </ReactBootStrap.NavDropdown>
           </ReactBootStrap.Nav>
