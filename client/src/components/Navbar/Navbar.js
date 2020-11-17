@@ -17,7 +17,7 @@ function Navbar() {
         <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
           <ReactBootStrap.Nav className="ml-auto">
-            <ReactBootStrap.Nav.Link href="#home" className="nav-option">
+            <ReactBootStrap.Nav.Link href="/home" className="nav-option">
               Home
             </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link href="#link" className="nav-option">
