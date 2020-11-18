@@ -7,14 +7,22 @@ import SignUpForCustomer from "./components/signup_for_customer/signup_for_custo
 import VideoDisplay from "./components/videoDisplay/videoDisplay.js";
 import BookService from "./components/Modals/BookService";
 
+import CarouselComponent from "./components/section_carousel/CarouselComponent";
+
 import CustomerProfile from "./components/customer_profile/customerProfile.component";
 
 import "./components/Star-rating/StarRating.css";
 import StarRating from "./components/Star-rating/StarRating.jsx";
 
-import ProfessionalProfile from "./components/professional_profile/professional.profile"
+import ProfessionalProfile from "./components/professional_profile/professional.profile";
 
 import Footer from "./components/Footer/Footer";
+
+import image1 from "./assests/image 1.jpg";
+import image2 from "./assests/image 1 (1).jpg";
+import image3 from "./assests/image 1 (2).jpg";
+import MainCarousel from "./components/set_preferences/MainCarousel";
+import SetPreferences from "./components/set_preferences/SetPreferences";
 
 function App() {
   return (
@@ -31,8 +39,41 @@ function App() {
       </Switch>
       <BookService />
       {/*Book Service Modal (Digvijay Srivastava)*/}
+      <MainCarousel />
+      <SetPreferences />
+
       <Display />
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+
+      <CarouselComponent
+        title={"Section"}
+        headers={["Lorem", "Ipsum", "Dolor"]}
+        images={[image1, image2, image3]}
+        paras={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        ]}
+      />
+      <CarouselComponent
+        title={"Section2"}
+        headers={["Lorem", "Ipsum", "Dolor", "four", "five"]}
+        images={[image1, image2, image3, image1, image2]}
+        paras={[
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "demo",
+          "demo2",
+        ]}
+      />
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+        }}
+      >
         {/* video component for front page(Ritesh Singh) */}
         <VideoDisplay />
         <StarRating />
