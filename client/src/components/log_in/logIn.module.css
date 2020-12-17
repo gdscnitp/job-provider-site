@@ -109,7 +109,7 @@
 
 .signin_btn:focus {
     outline: none;
-    color: yellow;
+    color: black;
 }
 
 .form_h4 {
@@ -163,10 +163,42 @@
   
   /* SMARTPHONES LANDSCAPE */
   @media only screen and (max-width: 550px) {
-    #form {
-      width: 60vw;
+
+    .parent_div {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
     }
-    .form-header {
-      font-size: 28px;
+    .form_div {
+        width: 90vw;
+        padding: 0 0 20px 0;
+        /* margin-top: 20px; */
+        border: 1px solid grey;
+        border-bottom: none;
+        border-radius: 25px 25px 0 0;
+    }
+
+    .form_h2 {
+        padding: 20px 0 ;
+    }
+
+    .form_h4{
+        margin-top: 20px;
+    }
+
+    .signin_btn{
+        margin-top: 20px;
+    }
+
+    .button_div {
+        width: 90vw;
+        padding-top: 40px;
+        border: 1px solid grey;
+        border-top: 1px solid grey;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-radius: 0 0 25px 25px;
     }
 }

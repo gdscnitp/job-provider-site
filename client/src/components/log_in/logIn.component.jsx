@@ -44,8 +44,25 @@ class LogIn extends React.Component {
                         <h2 className={styles.form_h2}>SIGN IN</h2>
 
                         <form onSubmit={this.handleSubmit} className={styles.form_component}>
-                            <input type="text" name="email" placeholder="Email / Phone Number" onChange={this.handleChange} value={this.state.email}></input>
-                            <input type="password" name="password" placeholder="Password" onChange={this.handleChange} value={this.state.password}></input>
+                            <input 
+                                type="text" 
+                                name="email" 
+                                placeholder="Email / Phone Number" 
+                                onChange={this.handleChange} 
+                                value={this.state.email} 
+                                required
+                            >
+                            </input>
+
+                            <input 
+                                type="password" 
+                                name="password" 
+                                placeholder="Password" 
+                                onChange={this.handleChange} 
+                                value={this.state.password} 
+                                required
+                            >    
+                            </input>
                             <button className={styles.signin_btn}>Sign In</button>
                         </form>
 
