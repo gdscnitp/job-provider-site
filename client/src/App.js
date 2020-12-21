@@ -24,6 +24,8 @@ import image3 from "./assests/image 1 (2).jpg";
 import MainCarousel from "./components/set_preferences/MainCarousel";
 import SetPreferences from "./components/set_preferences/SetPreferences";
 
+import LogIn from "./components/log_in/logIn.component.jsx"
+
 function App() {
   return (
     <Router>
@@ -41,6 +43,8 @@ function App() {
       {/*Book Service Modal (Digvijay Srivastava)*/}
       <MainCarousel />
       <SetPreferences />
+
+      <LogIn />
 
       <Display />
 
