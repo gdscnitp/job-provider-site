@@ -6,6 +6,7 @@ import SignUpForWorker from "./components/signup_for_worker/SignupWorker";
 import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
 import VideoDisplay from "./components/videoDisplay/videoDisplay.js";
 import BookService from "./components/Modals/BookService";
+import ServicePage from "./components/service_page/servicePage.component"
 
 import CarouselComponent from "./components/section_carousel/CarouselComponent";
 
@@ -45,6 +46,8 @@ function App() {
       <SetPreferences />
 
       <LogIn />
+
+      <ServicePage />
 
       <Display />
 

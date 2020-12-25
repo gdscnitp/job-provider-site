@@ -1,0 +1,237 @@
+#service_page {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_bar {
+    height: 60px;
+    background-color: #1c8ef8;
+}
+
+.heading{
+    text-align: center;
+    padding-top: 60px;
+}
+
+.search_div {
+    width: 60%;
+    align-self: center;
+    display: flex;
+    padding: 40px 0 80px 0;
+}
+
+.search_bar {
+    width: 80%;
+    font-size: 22px;
+    padding: 5px;
+    border: none;
+    background-color: #e3e1e1;
+}
+
+.search_bar::placeholder{
+    /* font-size: 24px; */
+    
+}
+
+.search_btn {
+    background-color: #c4c4c4;
+    margin-left: auto;
+    align-self: center;
+    border: none;
+    padding: 2px 20px;
+}
+
+.profile_div{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_sort {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#sort {
+    font-size: 20px;
+    background-color: #c4c4c4;
+    margin-left: auto;
+}
+
+.work_profile {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    align-self: center;
+    background-color: #c4c4c4;
+    margin-bottom: 30px;
+}
+
+.profile_intro {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid white;
+    padding: 20px 0;
+}
+
+.profile_img{
+    background-color: #5c5c5c;
+    width: 125px;
+    height: 125px;
+}
+
+.profile_rating {
+    background-color: #aeaeae;
+    text-align: center;
+    margin-top: 10px;
+    width: 70%;
+}
+
+.profile_details {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.profile_info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile_data {
+    width: 50%;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.profile_book {
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+.profile_btn {
+    font-size: 12px;
+    padding: 5px 20px;
+    border: none;
+}
+
+#btn1 {
+    background-color: #1c8ef8;
+    margin-right: 20px;
+}
+
+#btn2 {
+    background-color: #ffbcbc;
+}
+
+@media only screen and (max-width: 1024px){
+    .search_div {
+        width: 70%;
+    }
+    #sort{
+        font-size: 16px;
+    }
+    .work_profile {
+        width: 80%;
+    }
+
+    .profile_rating {
+        width: 80%;
+    }
+
+    .profile_data{
+        font-size: 14px;
+    }
+}
+
+/* TABLETS PORTRAIT */
+@media only screen and (max-width: 750px){
+    .search_bar {
+        width: 70%;
+        padding: 0;
+        font-size: 20px;
+        padding-left: 10px;
+    }
+    #sort{
+        font-size: 16px;
+    }
+    .work_profile{
+        width: 90%;
+    }
+    .profile_img{
+        width: 100px;
+        height: 100px;
+    }
+    .profile_btn {
+        padding: 5px 10px;
+    }
+}
+
+/* SMARTPHONES LANDSCAPE */
+@media only screen and (max-width: 570px){
+    .search_bar{
+        font-size: 18px;
+        width: 70%;
+    }
+    .work_profile {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+    .profile_intro {
+        border: none;
+        width: 50%;
+        align-self: center;
+        border-bottom: 1px solid white;
+    }
+    .profile_img{
+        width: 125px;
+        height: 125px;
+    }
+
+    .profile_details{
+        width: 100%;
+    }
+
+    .profile_info{
+        margin-bottom: 15px;
+    }
+}
+
+/* SMARTPHONES PORTRAIT */
+@media only screen and (max-width: 470px){
+    .search_div{
+        width: 80%;
+    }
+    .search_bar{
+        width: 65%;
+        font-size: 16px;
+    }
+    .search_btn{
+        font-size: 12px;
+        padding: 2px 20px;
+    }
+    .profile_details{
+        padding: 5px 2px;
+    }
+    .profile_rating{
+        font-size: 12px;
+    }
+    .profile_data{
+        font-size: 12px;
+    }
+    .profile_book{
+        padding: 0 10px 10px 0;
+    }
+    .profile_btn{
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+}
