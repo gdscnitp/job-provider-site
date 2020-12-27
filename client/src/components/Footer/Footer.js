@@ -53,7 +53,7 @@ function Footer() {
                   class="btn-floating btn-fb text-white "
                   href="https://www.facebook.com/"
                 >
-                  <FaFacebook size="4rem" />
+                  <FaFacebook size="2.8rem" />
                 </a>
               </li>
               <li class="list-inline-item mx-2">
@@ -61,7 +61,7 @@ function Footer() {
                   class="btn-floating btn-tw text-white"
                   href="https://www.twitter.com/"
                 >
-                  <FaTwitter size="4rem" />
+                  <FaTwitter size="2.8rem" />
                 </a>
               </li>
               <li class="list-inline-item  mx-2 ">
@@ -69,7 +69,7 @@ function Footer() {
                   class="btn-floating btn-gplus text-white"
                   href="https://www.gplus.com/"
                 >
-                  <FaGooglePlus size="4rem" />
+                  <FaGooglePlus size="2.8rem" />
                 </a>
               </li>
               <li class="list-inline-item mx-2">
@@ -77,7 +77,7 @@ function Footer() {
                   class="btn-floating btn-li text-light"
                   href="https://www.linkedin.com/"
                 >
-                  <FaLinkedin size="4rem" />
+                  <FaLinkedin size="2.8rem" />
                 </a>
               </li>
             </ul>
@@ -85,7 +85,7 @@ function Footer() {
         </div>
       </div>
 
-      <div class="text-center py-3" style={{ fontSize: "1.5rem " }}>
+      <div class="text-center py-3" style={{ fontSize: "1.1rem " }}>
         @Worklink, All rights reserved
       </div>
     </div>
