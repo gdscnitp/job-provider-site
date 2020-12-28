@@ -17,7 +17,7 @@ const WorkProfile = ({name,experience, type, bookings, charge}) => (
                 <div className={styles.profile_data}>Experience: {experience}</div>
                 <div className={styles.profile_data}>Type: {type}</div>
                 <div className={styles.profile_data}>Bookings Completed: {bookings}</div>
-                <div className={styles.profile_data}>Estimate Charge: {charge}</div>
+                <div className={styles.profile_data}>Estimate Charge: {charge}
             </div>
             <div className={styles.profile_book}>
                 <button className={styles.profile_btn} id={styles.btn1}>More Details</button>
@@ -31,9 +31,10 @@ class ServicePage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            query: ""
+            query: "",
+            
         }
-
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -89,7 +90,9 @@ class ServicePage extends React.Component {
                         charge=""
                     />
                 </div>
+               
             </div>
+            
         )
     }
 }
