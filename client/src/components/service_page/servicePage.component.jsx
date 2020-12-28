@@ -17,7 +17,7 @@ const WorkProfile = ({name,experience, type, bookings, charge}) => (
                 <div className={styles.profile_data}>Experience: {experience}</div>
                 <div className={styles.profile_data}>Type: {type}</div>
                 <div className={styles.profile_data}>Bookings Completed: {bookings}</div>
-                <div className={styles.profile_data}>Estimate Charge: {charge}
+                <div className={styles.profile_data}>Estimate Charge: {charge}</div>
             </div>
             <div className={styles.profile_book}>
                 <button className={styles.profile_btn} id={styles.btn1}>More Details</button>
