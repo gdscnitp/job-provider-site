@@ -47,7 +47,6 @@ class ServicePage extends React.Component {
       isModalOpen: false,
       isModalOpen1: false,
       profileImg: "assests/profile.PNG",
-      bgImg: "assests/bg.jpg",
             
         }
     this.toggleNav = this.toggleNav.bind(this);
