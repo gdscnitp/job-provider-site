@@ -1,0 +1,57 @@
+.profile-card{
+    height: 260px;
+    width: 200px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px 1px black ;
+    margin: 10px 10px 30px 10px;
+}
+.upper-container{
+    height: 160px;
+    background: rgba(0, 0, 255, 0.8);
+}
+.image-container{
+    padding:5px 0;
+}
+.image-container img{
+    background: white;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    padding: 5px;
+    transform: translate(28px,0);
+    border: 2px solid #8e00b9;
+    display: flex;
+    text-align: justify;
+}
+.lower-container{
+    margin-top: 5px;
+    text-align: center;
+}
+.lower-container h3,h4{
+    margin: 0;
+    padding:0;
+}
+.lower-container h3{
+    color: #2f2d2e;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.lower-container h4{
+    color: #8e00b9;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+.icon-links{
+    margin: 5px;
+    cursor: pointer;
+}
+.icon-links:hover{
+    opacity: 0.7;
+}
+.linkedin-icon{
+    color:rgba(0, 0, 255, 0.7);
+}
+.github-icon{
+    color:  #2f2d2e;
+}

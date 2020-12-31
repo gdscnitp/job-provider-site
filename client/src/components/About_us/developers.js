@@ -1,0 +1,51 @@
+export const Developers = [{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Neeraj",
+    branch:"Computer Science",
+    github:"github.com/neeraj2212",
+    linkedin:"bing.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+},{
+    name:"Saurabh",
+    branch:"Electrical",
+    github:"github.com/Saurabhdhotre2709",
+    linkedin:"google.com"
+}]
