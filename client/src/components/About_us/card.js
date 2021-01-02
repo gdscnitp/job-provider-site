@@ -22,10 +22,10 @@ function Card(props) {
                 <h4>{branch}</h4>
 
                 <div className='icon-container'> 
-                  <a href={github} target='_blank'>
+                  <a href={github} target='_blank' rel='noreferrer noopener'>
                     <FaGithub className='icon-links fa-2x github-icon'/>
                   </a>
-                  <a href={linkedin} target='_blank'>
+                  <a href={linkedin} target='_blank' rel='noreferrer noopener'>
                     <FaLinkedin className='icon-links fa-2x linkedin-icon'/>
                   </a>
                 </div>
