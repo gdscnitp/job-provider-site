@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
     "font-awesome": "^4.7.0",
     "prettier": "^2.1.2",
     "react": "^16.13.1",
