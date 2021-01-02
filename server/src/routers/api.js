@@ -64,7 +64,7 @@ router.get('/oauth/google/worker',(req,res,next)=>{
 router.post("/login/customer", async (req, res) => {
 	try {		if(req.body.email){
 		const email=req.body.email;
-			Customer.findOne({ "email": email }, 'email password', async (err, usr) => {
+			Customer.findOne({ "email": {$eq :email }  }, 'email password', async (err, usr) => {
 					if (!usr) {
 								res.status(401).send("Email or password incorrect!")
 					}
@@ -90,7 +90,7 @@ router.post("/login/worker", async (req, res) => {
 	try {
 		if(req.body.email){
 			const email=req.body.email;
-			Worker.findOne({ "email": email }, 'email password', async (err, usr) => {
+			Worker.findOne({ "email": {$eq : email} }, 'email password', async (err, usr) => {
 					if (!usr) {
 								res.status(401).send("Email or password incorrect!")
 					}
