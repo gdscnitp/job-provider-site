@@ -3,8 +3,10 @@ const router = express.Router();
 const multer = require('multer')
 const sharp = require('sharp')
 const Customer = require("../models/Customer");
-const auth = require('../middleware/auth');
 const Worker = require("../models/signup_workers");
+const auth = require('../middleware/auth').auth;
+const passport=require('../middleware/auth').passport;
+const bcrypt = require("bcryptjs");
 
 
 // Testing Purpose
@@ -21,6 +23,89 @@ var limiter = new RateLimit({
 router.use(limiter);
 
 router.use(express.json());
+
+//route for customer googleoauth
+router.get('/google/customer',passport.authenticate('googleTokenCustomer',{scope:['profile','email']}))
+
+router.get('/oauth/google/customer',(req,res,next)=>{
+	return passport.authenticate('googleTokenCustomer', { session: false }, (err, {token,user}={}) => {
+     if(err) {
+       return next(err);
+     }
+     if(user) {
+   return res.status(200).send({token});
+     }
+
+     return res.status(400);
+   })(req, res,next);
+
+})
+
+//route for worker googleoauth
+router.get('/google/worker',passport.authenticate('googleTokenWorker',{scope:['profile','email']}))
+
+router.get('/oauth/google/worker',(req,res,next)=>{
+	return passport.authenticate('googleTokenWorker', { session: false }, (err, {token,user}={}) => {
+	   if(err) {
+       return next(err);
+     }
+     if(user) {
+   return res.status(200).send({token});
+     }
+
+     return res.status(400);
+   })(req, res,next);
+
+})
+
+
+
+//login for customer
+router.post("/login/customer", async (req, res) => {
+	try {
+			Customer.findOne({ "email": req.body.email }, 'Username email password', async (err, usr) => {
+					if (!usr) {
+								res.status(401).send("Email or password incorrect!")
+					}
+					bcrypt.compare(req.body.password, usr.password, async function (err, isMatch) {
+							if (isMatch) {
+									const token = await usr.generateAuthToken();
+									res.status(200).send({token});
+							}
+							if (!isMatch) {
+									res.status(401).send("Email or password incorrect!")
+							}
+					})
+			})
+	} catch (e) {
+			res.status(400).send(e)
+	}
+});
+
+//login for worker
+router.post("/login/worker", async (req, res) => {
+	try {
+			Worker.findOne({ "email": req.body.email }, 'Username email password', async (err, usr) => {
+					if (!usr) {
+								res.status(401).send("Email or password incorrect!")
+					}
+					bcrypt.compare(req.body.password, usr.password, async function (err, isMatch) {
+							if (isMatch) {
+									const token = await usr.generateAuthToken();
+									res.status(200).send({token});
+							}
+							if (!isMatch) {
+									res.status(401).send("Email or password incorrect!")
+							}
+					})
+			})
+	} catch (e) {
+			res.status(400).send(e)
+	}
+});
+
+
+
 
 router.post("/signup_customer", async (req, res) => {
     const customer = new Customer(req.body)

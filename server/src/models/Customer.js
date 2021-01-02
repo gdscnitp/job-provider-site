@@ -29,7 +29,7 @@ const CustomerSchema = new Schema(
 		contact: {
 			type: String,
 			unique: true,
-			required: true,
+		//	required: true,
 		},
 		email: {
 			type: String,
@@ -46,12 +46,11 @@ const CustomerSchema = new Schema(
 		experience: String,
 		location: {
 			type: String,
-			required: true,
+		//	required: true,
 		},
 		address: String,
 		password: {
 			type: String,
-			required: true,
 			minlength: 7,
 			trim: true,
 		},
