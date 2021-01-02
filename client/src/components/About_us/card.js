@@ -5,10 +5,10 @@ import './card.css';
 
 function Card(props) {
 
-    const [name,setName]=useState(props.name||'Your Name');
-    const [branch,setBranch]=useState(props.branch||'Your branch');
-    const [github,setGithub]=useState(props.github||'github-id');
-    const [linkedin,setLinkedin]=useState(props.linkedin||'linkedin-id');
+    const [name]=useState(props.name||'Your Name');
+    const [branch]=useState(props.branch||'Your branch');
+    const [github]=useState(props.github||'github-id');
+    const [linkedin]=useState(props.linkedin||'linkedin-id');
 
     return(
         <div className = 'profile-card'>
