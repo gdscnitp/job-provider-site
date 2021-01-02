@@ -16,10 +16,5 @@
   "bugs": {
     "url": "https://github.com/dscnitp/job-provider-site/issues"
   },
-  "homepage": "https://github.com/dscnitp/job-provider-site#readme",
-  "dependencies": {
-    "@material-ui/core": "^4.11.2",
-    "chart.js": "^2.9.4",
-    "react-chartjs-2": "^2.11.1"
-  }
+  "homepage": "https://github.com/dscnitp/job-provider-site#readme"
 }

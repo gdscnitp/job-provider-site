@@ -1,51 +1,51 @@
 export const Developers = [{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Neeraj",
-    branch:"Computer Science",
-    github:"github.com/neeraj2212",
-    linkedin:"bing.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 },{
-    name:"Saurabh",
-    branch:"Electrical",
-    github:"github.com/Saurabhdhotre2709",
-    linkedin:"google.com"
+    name:"Your Name",
+    branch:"Your branch",
+    github:"github-id",
+    linkedin:"linkedin-id"
 }]
