@@ -62,8 +62,9 @@ router.get('/oauth/google/worker',(req,res,next)=>{
 
 //login for customer
 router.post("/login/customer", async (req, res) => {
-	try {
-			Customer.findOne({ "email": req.body.email }, 'Username email password', async (err, usr) => {
+	try {		if(req.body.email){
+		const email=req.body.email;
+			Customer.findOne({ "email": email }, 'email password', async (err, usr) => {
 					if (!usr) {
 								res.status(401).send("Email or password incorrect!")
 					}
@@ -77,6 +78,8 @@ router.post("/login/customer", async (req, res) => {
 							}
 					})
 			})
+			}else
+			{res.status(400).send();}
 	} catch (e) {
 			res.status(400).send(e)
 	}
@@ -85,7 +88,9 @@ router.post("/login/customer", async (req, res) => {
 //login for worker
 router.post("/login/worker", async (req, res) => {
 	try {
-			Worker.findOne({ "email": req.body.email }, 'Username email password', async (err, usr) => {
+		if(req.body.email){
+			const email=req.body.email;
+			Worker.findOne({ "email": email }, 'email password', async (err, usr) => {
 					if (!usr) {
 								res.status(401).send("Email or password incorrect!")
 					}
@@ -99,6 +104,8 @@ router.post("/login/worker", async (req, res) => {
 							}
 					})
 			})
+		}else
+		{		res.status(400).send()}
 	} catch (e) {
 			res.status(400).send(e)
 	}
