@@ -4,7 +4,7 @@ import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 export default function MainCarousel() {
   return (
     <div className="align-items-center">
-      <div
+      {/* <div
         className="mt-2 text-center mx-auto mb-2"
         style={{ width: "fit-content" }}
       >
@@ -19,7 +19,7 @@ export default function MainCarousel() {
         >
           Are you a professional/worker?
         </h3>
-      </div>
+      </div> */}
       <Carousel
         style={{ width: "", height: "" }}
         className="mx-auto col-12 col-md-10"
@@ -33,9 +33,21 @@ export default function MainCarousel() {
         <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
-            src={require("../../assests/image 1.jpg")}
+            src={require("../../assests/roof_repair.jpg")}
             alt="First slide"
-            style={{ width: "", height: "" }}
+            style={{ width: "", height: "600px" }}
+          />
+          <Carousel.Caption style={{ bottom: "50%" }}>
+            <h1>Roof repair</h1>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item style={{ width: "", height: "" }}>
+          <img
+            className="d-block w-100 img-fluid"
+            src={require("../../assests/carpenter.jpg")}
+            alt="First slide"
+            style={{ width: "", height: "600px" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
             <h3>First slide label</h3>
@@ -45,21 +57,9 @@ export default function MainCarousel() {
         <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
-            src={require("../../assests/image 1.jpg")}
+            src={require("../../assests/chef.jpg")}
             alt="First slide"
-            style={{ width: "", height: "" }}
-          />
-          <Carousel.Caption style={{ bottom: "50%" }}>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item style={{ width: "", height: "" }}>
-          <img
-            className="d-block w-100 img-fluid"
-            src={require("../../assests/image 1.jpg")}
-            alt="First slide"
-            style={{ width: "", height: "" }}
+            style={{ width: "", height: "600px" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
             <h3>First slide label</h3>
