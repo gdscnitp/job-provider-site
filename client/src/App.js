@@ -9,6 +9,7 @@ import ServicePage from "./components/service_page/servicePage.component"
 
 import CarouselComponent from "./components/section_carousel/CarouselComponent";
 
+import AboutUS from "./components/About_us/aboutUs";
 import CustomerProfile from "./components/customer_profile/customerProfile.component";
 
 import "./components/Star-rating/StarRating.css";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/signup_worker" exact component={SignUpForWorker} />
         <Route path="/signup_customer" exact component={SignUpForCustomer} />
         <Route path="/profile_customer" exact component={CustomerProfile} />
+        <Route path='/about_us' exact component={AboutUS}/>
         <Route path="/profile_worker" exact component={ProfessionalProfile} />
       </Switch>
       {/*Book Service Modal (Digvijay Srivastava), now integrated in services page*/}
@@ -82,8 +84,10 @@ function App() {
         <VideoDisplay />
         <StarRating />
       </div>
+      
       <Footer />
     </Router>
+
   );
 }
 

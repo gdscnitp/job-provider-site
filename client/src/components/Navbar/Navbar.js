@@ -23,6 +23,10 @@ function Navbar() {
             <ReactBootStrap.Nav.Link href="#link" className="nav-option">
               Contact Us
             </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link href="/about_us" target="_blank" className="nav-option">
+              About Us
+            </ReactBootStrap.Nav.Link>
+
             <ReactBootStrap.NavDropdown
               title="Other Links"
               id="basic-nav-dropdown"
