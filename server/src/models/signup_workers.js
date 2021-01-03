@@ -23,7 +23,7 @@ const workerSchema = new mongoose.Schema({
   },
   type_of_work: {
     type: String,
-    required: true,
+  //  required: true,
     trim: true,
   },
   contact: {
@@ -35,7 +35,7 @@ const workerSchema = new mongoose.Schema({
       },
       message: (props) => `${props.value} is not a valid phone number!`,
     },
-    required: [true, "User phone number required"],
+  //  required: [true, "User phone number required"],
   },
   email: {
     type: String,
@@ -61,14 +61,13 @@ const workerSchema = new mongoose.Schema({
   },
   location: {
     type: String,
-    required: true,
+  //  required: true,
   },
   address: {
     type: String,
   },
   password: {
     type: String,
-    required: true,
     minlength: 7,
     trim: true,
     validate(value) {

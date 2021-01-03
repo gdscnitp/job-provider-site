@@ -1,0 +1,25 @@
+.container{
+    background-color: #f5f4f4;
+}
+.main-container-heading{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.title{
+    text-align: center;
+}
+.linechart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-container-heading{
+    text-align: center;
+    margin-top: 40px;
+}
+.card-container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
