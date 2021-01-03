@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar/Navbar";
 import SignUpForWorker from "./components/signup_for_worker/SignupWorker";
 import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
 import VideoDisplay from "./components/videoDisplay/videoDisplay.js";
-import BookService from "./components/Modals/BookService";
 import ServicePage from "./components/service_page/servicePage.component"
 
 import CarouselComponent from "./components/section_carousel/CarouselComponent";
@@ -33,15 +32,13 @@ function App() {
       <Navbar />
       {/* Our best services carousel (Kunal Prakash) */}
       <Switch>
-        <Route path="/book_service" component={BookService} />
         <Route path="/best_services" exact component={Display} />
         <Route path="/signup_worker" exact component={SignUpForWorker} />
         <Route path="/signup_customer" exact component={SignUpForCustomer} />
         <Route path="/profile_customer" exact component={CustomerProfile} />
         <Route path="/profile_worker" exact component={ProfessionalProfile} />
       </Switch>
-      <BookService />
-      {/*Book Service Modal (Digvijay Srivastava)*/}
+      {/*Book Service Modal (Digvijay Srivastava), now integrated in services page*/}
       <MainCarousel />
       <SetPreferences />
 
