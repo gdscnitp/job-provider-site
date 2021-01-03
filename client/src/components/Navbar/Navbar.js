@@ -23,15 +23,9 @@ function Navbar() {
             <ReactBootStrap.Nav.Link href="#link" className="nav-option">
               Contact Us
             </ReactBootStrap.Nav.Link>
-
-            <ReactBootStrap.Nav.Link href="/services" className="nav-option">
-              Services
-            </ReactBootStrap.Nav.Link>
-
             <ReactBootStrap.Nav.Link href="/about_us" target="_blank" className="nav-option">
               About Us
             </ReactBootStrap.Nav.Link>
-
 
             <ReactBootStrap.NavDropdown
               title="Other Links"
@@ -56,7 +50,7 @@ function Navbar() {
               </ReactBootStrap.NavDropdown.Item>
             </ReactBootStrap.NavDropdown>
           </ReactBootStrap.Nav>
-          <ReactBootStrap.Button variant="success" href="/signin">
+          <ReactBootStrap.Button variant="success">
             Sign in
           </ReactBootStrap.Button>
         </ReactBootStrap.Navbar.Collapse>
