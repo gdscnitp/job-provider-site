@@ -1,192 +1,232 @@
-import React from 'react';
+//Class
+import React, { useState } from 'react';
 import {
-    Button,
-    Label,
-    Input,
-    Modal,
-    ModalBody,
-    Card,
-    CardImg,
-    CardText,
-    CardBody,
-  } from "reactstrap";
-import styles from './servicePage.module.css'
+  Button,
+  Label,
+  Input,
+  Modal,
+  ModalBody,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+} from 'reactstrap';
+import styles from './servicePage.module.css';
+import axios from 'axios';
 
-const WorkProfile = ({name,experience, type, bookings, charge, onClick}) => (
-    <div className={styles.work_profile}>
+const WorkProfile = ({ name, experience, type, bookings, charge }) => {
+  const [state, setState] = useState({
+    isModalOpen: false,
+    isModalOpen1: false,
+    profileImg: 'assests/profile.PNG',
+  });
+
+  const { isModalOpen, isModalOpen1, profileImg } = state;
+
+  const toggleModal = () => {
+    setState({
+      ...state,
+      isModalOpen: !isModalOpen,
+    });
+  };
+
+  const toggleModal1 = () => {
+    setState({
+      ...state,
+      isModalOpen1: !isModalOpen1,
+    });
+  };
+
+  return (
+    <div>
+      <div className={styles.work_profile}>
         <div className={styles.profile_intro}>
-            <div className={styles.profile_img}>
-                {/* Put Image tag here */}
-            </div>
-            <div className={styles.profile_rating}>
-                Rating
-            </div>
+          <div className={styles.profile_img}>{/* Put Image tag here */}</div>
+          <div className={styles.profile_rating}>Rating</div>
         </div>
         <div className={styles.profile_details}>
-            <div className={styles.profile_info}>
-                <div className={styles.profile_data}>Name: {name}</div>
-                <div className={styles.profile_data}>Experience: {experience}</div>
-                <div className={styles.profile_data}>Type: {type}</div>
-                <div className={styles.profile_data}>Bookings Completed: {bookings}</div>
-                <div className={styles.profile_data}>Estimate Charge: {charge}</div>
+          <div className={styles.profile_info}>
+            <div className={styles.profile_data}>Name: {name}</div>
+            <div className={styles.profile_data}>
+              Experience: {experience} Years
             </div>
-            <div className={styles.profile_book}>
-                <button className={styles.profile_btn} id={styles.btn1}>More Details</button>
-                <button className={styles.profile_btn} id={styles.btn2} onClick={onClick}>Book Service</button>
+            <div className={styles.profile_data}>Type: {type}</div>
+            <div className={styles.profile_data}>
+              Bookings Completed: {bookings}
             </div>
+            <div className={styles.profile_data}>
+              Estimate Charge: {charge}/hr
+            </div>
+          </div>
+          <div className={styles.profile_book}>
+            <button className={styles.profile_btn} id={styles.btn1}>
+              More Details
+            </button>
+            <button
+              className={styles.profile_btn}
+              id={styles.btn2}
+              onClick={toggleModal}
+            >
+              Book Service
+            </button>
+          </div>
         </div>
+      </div>
+      <Modal isOpen={isModalOpen} toggle={toggleModal}>
+        <ModalBody>
+          <div>
+            <Card>
+              <CardImg top width='100%' src={profileImg} alt='Profile Image' />
+              <CardBody>
+                <CardText>
+                  <p>Name: {name}</p>
+                  <p>Type of worker: {type}</p>
+                  <p>Charges: {charge}/hr</p>
+                  <p>Experience: {experience} Years</p>
+                  <p>No of. Booking Completed: {bookings}</p>
+                </CardText>
+                <center>
+                  <Button
+                    onClick={() => {
+                      toggleModal();
+                      toggleModal1();
+                    }}
+                  >
+                    Book Service
+                  </Button>
+                </center>
+              </CardBody>
+            </Card>
+          </div>
+        </ModalBody>
+      </Modal>
+      <Modal isOpen={isModalOpen1} toggle={toggleModal1}>
+        <ModalBody>
+          <div>
+            <Card>
+              <CardText>
+                <center>
+                  Preview the confirmation detail of booking done like the work
+                  and when the work is needed
+                  <br />
+                  <br />
+                  So only view of the confirmation preview is to be shown
+                </center>
+              </CardText>
+              <br />
+              <center>
+                <Label check>
+                  <Input type='checkbox' name='agree' />{' '}
+                  <strong>Accept T&C</strong>
+                </Label>
+                <br />
+                <br />
+              </center>
+              <center>
+                <Button onClick={toggleModal1}>Confirm Booking</Button>
+              </center>
+            </Card>
+          </div>
+        </ModalBody>
+      </Modal>
     </div>
-)
+  );
+};
 
 class ServicePage extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            query: "",
-            isNavOpen: false,
-      isModalOpen: false,
-      isModalOpen1: false,
-      profileImg: "assests/profile.PNG",
-            
-        }
-    this.toggleNav = this.toggleNav.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
-    this.toggleModal1 = this.toggleModal1.bind(this);
-        
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  constructor(props) {
+    super(props);
 
-    toggleNav() {
-        this.setState({
-          isNavOpen: !this.state.isNavOpen,
-        });
-      }
-    
-      toggleModal() {
-        this.setState({
-          isModalOpen: !this.state.isModalOpen,
-        });
-      }
-    
-      toggleModal1() {
-        this.setState({
-          isModalOpen1: !this.state.isModalOpen1,
-        });
-      }
+    this.state = {
+      query: '',
+      workers: [],
+    };
 
-    handleChange = (event) => {
-        const value = event.target.value;
-        this.setState({
-            query: value
-        })
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.getWorker = this.getWorker.bind(this);
+  }
 
-    handleSubmit = (event) => {
-        const query = this.state.query
-        alert(`You search for "${query}"`)
-        this.setState({
-            query: ""
-        })
-        event.preventDefault()
-    }
-    render(){
-        return(
-            <div id={styles.service_page}>
-                {/* <nav className={styles.nav_bar} /> */}
-                <h2 className={styles.heading}>Our Best Services</h2>
-                <div className={styles.search_div}>
-                    <input className={styles.search_bar} name="query" onChange={this.handleChange} value={this.state.query} placeholder="Enter the query field"/>
-                    <button className={styles.search_btn} onClick={this.handleSubmit} type="submit">Search</button>
-                </div>
-                <div className={styles.profle_div}>
-                    <div className={styles.profile_sort}>
-                        <select name="type" id={styles.sort}>
-                            <option value="">Sort By</option>
-                            <option value="name">Name</option>
-                            <option value="experience">Experience</option>
-                            <option value="type">Type</option>
-                            <option value="charge">Charge</option>
-                        </select>
-                    </div>
+  handleChange = (event) => {
+    const value = event.target.value;
+    this.setState({
+      query: value,
+    });
+  };
 
-                    {/* Add as many WorkProfile component by passing props */}
-                    <WorkProfile 
-                        name="Test"
-                        experience="2 Years"
-                        type="Barber"
-                        bookings="23"
-                        charge="100/person"
-                        onClick={this.toggleModal}
-                    />
-                    <WorkProfile 
-                        name=""
-                        experience=""
-                        type=""
-                        bookings=""
-                        charge=""
-                        onClick={this.toggleModal}
-                    />
-                </div>
-        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalBody>
-            <div>
-              <Card>
-                <CardImg
-                  top
-                  width="100%"
-                  src={this.state.profileImg}
-                  alt="Profile Image"
-                />
-                <CardBody>
-                  <CardText>
-                    <p>Name: </p>
-                    <p>Type of worker: </p>
-                    <p>Charges: </p>
-                    <p>Experience: </p>
-                    <p>No of. Booking Completed:</p>
-                  </CardText>
-                  <center>
-                    <Button onClick={() => { this.toggleModal1(); this.toggleModal()}}>Book Service</Button>
-                  </center>
-                </CardBody>
-              </Card>
-            </div>
-          </ModalBody>
-        </Modal>
-        <Modal isOpen={this.state.isModalOpen1} toggle={this.toggleModal1}>
-          <ModalBody>
-            <div>
-              <Card>
-                <CardText>
-                  <center>
-                    Preview the confirmation detail of booking done like the
-                    work and when the work is needed
-                    <br />
-                    <br />
-                    So only view of the confirmation preview is to be shown
-                  </center>
-                </CardText>
-                <br/>
-                  <center>
-                    <Label check>
-                      <Input type="checkbox" name="agree" />{" "}
-                      <strong>Accept T&C</strong>
-                    </Label>
-                    <br />
-                    <br/>
-                  </center>
-                  <center>
-                  <Button onClick={this.toggleModal1}>Confirm Booking</Button>
-                  </center>
-              </Card>
-            </div>
-          </ModalBody>
-        </Modal>
-            </div>
-            
-        )
+  handleSubmit = (event) => {
+    const query = this.state.query;
+    alert(`You search for "${query}"`);
+    this.setState({
+      query: '',
+    });
+    event.preventDefault();
+  };
+
+  getWorker = async () => {
+    try {
+      const res = await axios.get('/workers');
+      this.setState({ workers: res.data });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error.response.data);
     }
+  };
+
+  render() {
+    this.getWorker();
+    return (
+      <div id={styles.service_page}>
+        {/* <nav className={styles.nav_bar} /> */}
+        <h2 className={styles.heading}>Our Best Services</h2>
+        <div className={styles.search_div}>
+          <input
+            className={styles.search_bar}
+            name='query'
+            onChange={this.handleChange}
+            value={this.state.query}
+            placeholder='Enter the query field'
+          />
+          <button
+            className={styles.search_btn}
+            onClick={this.handleSubmit}
+            type='submit'
+          >
+            Search
+          </button>
+        </div>
+        <div className={styles.profle_div}>
+          <div className={styles.profile_sort}>
+            <select name='type' id={styles.sort}>
+              <option value=''>Sort By</option>
+              <option value='name'>Name</option>
+              <option value='experience'>Experience</option>
+              <option value='type'>Type</option>
+              <option value='charge'>Charge</option>
+            </select>
+          </div>
+
+          {/* Add as many WorkProfile component by passing props */}
+          {this.state.workers.map((worker) => (
+            <WorkProfile
+              name={worker.name}
+              experience={worker.experience}
+              type={worker.type_of_work}
+              bookings=''
+              charge={worker.cost_of_work}
+            />
+          ))}
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default ServicePage;
