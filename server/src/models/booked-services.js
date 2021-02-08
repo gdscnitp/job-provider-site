@@ -13,10 +13,10 @@ const serviceSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	worker_contact: {
-		type: String,
-		required: true,
-	},
+	// worker_contact: {
+	// 	type: String,
+	// 	required: true,
+	// },
 	customer_contact: {
 		type: String,
 		required: true,
