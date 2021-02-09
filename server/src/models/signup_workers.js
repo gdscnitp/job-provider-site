@@ -78,10 +78,10 @@ const workerSchema = new mongoose.Schema({
   },
   feedback: FeedbackSchema,
 
-  /*confirm_password: {
+  confirm_password: {
         type: String,
         required: true
-    },*/
+    },
   tokens: [
     {
       token: {
