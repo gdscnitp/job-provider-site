@@ -10,7 +10,7 @@ router.post('/book_services',(req,res)=>{
         // worker_contact:req.body.contact,
         customer_contact:"9076543211",    //Right now hard-coded
         cost_of_work:req.body.charge,
-        location:"New Delhi",    //Right now hard-coded
+        location:"New Delhi",    //Right now hard-coded, since there is no sign up - sign in yet
         createdAt:Date(),
         date_for_booking: (Date())[8]+(Date())[9]+'-'+(Date())[4]+(Date())[5]+(Date())[6]+'-'+(Date())[11]+(Date())[12]+(Date())[13]+(Date())[14] ,
         time_for_booking: (Date())[16]+(Date())[17]+(Date())[18]+(Date())[19]+(Date())[20]+(Date())[21]+(Date())[22]+(Date())[23]
@@ -20,6 +20,23 @@ router.post('/book_services',(req,res)=>{
         console.log(service)
         console.log("Service saved")
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     res.redirect('/')
 
 
