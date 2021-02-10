@@ -4,6 +4,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .nav_bar {
@@ -28,7 +29,8 @@
     font-size: 22px;
     padding: 5px;
     border: none;
-    background-color: #e3e1e1;
+    border-radius: 8px;
+    background-color: #f6f6f6;
 }
 
 .search_bar::placeholder{
@@ -37,11 +39,17 @@
 }
 
 .search_btn {
-    background-color: #c4c4c4;
+    background-color: #ffbcbc;
     margin-left: auto;
     align-self: center;
     border: none;
+    border-radius: 8px;
     padding: 2px 20px;
+}
+
+.search_btn:focus{
+    outline: none;
+    border: none;
 }
 
 .profile_div{
@@ -67,7 +75,8 @@
     width: 70%;
     display: flex;
     align-self: center;
-    background-color: #c4c4c4;
+    background-color: #e5f7ff;
+    border-radius: 10px;
     margin-bottom: 30px;
 }
 
@@ -76,21 +85,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid white;
     padding: 20px 0;
 }
 
 .profile_img{
-    background-color: #5c5c5c;
-    width: 125px;
-    height: 125px;
+    width: 100px;
+    height: 100px;
+}
+
+#profile_image {
+    width: 100%;
 }
 
 .profile_rating {
-    background-color: #aeaeae;
     text-align: center;
     margin-top: 10px;
     width: 70%;
+    display: flex;
+    justify-content: center;
 }
 
 .profile_details {
@@ -120,6 +132,7 @@
     font-size: 12px;
     padding: 5px 20px;
     border: none;
+    border-radius: 8px;
 }
 
 #btn1 {
