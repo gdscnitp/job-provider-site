@@ -10,6 +10,7 @@ import "./bestServices.style.css";
 import image1 from "../../assests/image 1.jpg";
 import image2 from "../../assests/image 1 (1).jpg";
 import image3 from "../../assests/image 1 (2).jpg";
+import { Link } from "react-router-dom";
 
 const responsive = {
   superLargeDesktop: {
@@ -32,6 +33,7 @@ const responsive = {
 
 const CardItem = ({ image, header, para }) => (
   <div className="box">
+    <Link to="/best_services" style={{color:"inherit",textDecoration:"none"}}>
     <div className="box-image">
       <img src={image} alt="" />
     </div>
@@ -39,6 +41,8 @@ const CardItem = ({ image, header, para }) => (
       <h2 className="box-header">{header}</h2>
       <p>{para}</p>
     </div>
+    </Link>
+    
   </div>
 );
 
@@ -54,6 +58,7 @@ const Display = () => {
   return (
     <div>
       <h1 className="headings">OUR BEST SERVICES</h1>
+      
       <Carousel className="block" responsive={responsive}>
         <CardItem image={image1} header={headers[0]} para={paras[0]} />
         <CardItem image={image2} header={headers[1]} para={paras[1]} />
@@ -65,6 +70,7 @@ const Display = () => {
         <CardItem image={image2} header={headers[1]} para={paras[1]} />
         <CardItem image={image3} header={headers[2]} para={paras[2]} />
       </Carousel>
+      
     </div>
   );
 };
