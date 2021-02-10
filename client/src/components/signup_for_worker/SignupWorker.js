@@ -29,6 +29,7 @@ class SignUpForWorker extends Component {
 	render() {
 		return (
 			<div className="form-div">
+				<form method='post' action='../../../../workers'>
 				<h1 className="form-header">Sign Up (Worker)</h1>
 				<div className="form-component">
 					<Form id="form">
@@ -118,6 +119,7 @@ class SignUpForWorker extends Component {
 						</Button>
 					</Form>
 				</div>
+				</form>
 			</div>
 		);
 	}

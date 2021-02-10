@@ -23,6 +23,7 @@ router.get('/workers', async (req, res) => {
 router.use(limiter);
 
 router.post('/workers', async (req, res) => {
+  console.log('Hey')
   const worker = new Worker(req.body);
 
   try {

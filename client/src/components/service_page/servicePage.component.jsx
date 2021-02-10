@@ -1,7 +1,7 @@
 //Class
 import React, { useState } from 'react';
 import {
-  Button,
+  // Button,
   Label,
   Input,
   Modal,
@@ -31,6 +31,7 @@ const Stars = ({n}) => {
 }
 
 const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
+
   const [state, setState] = useState({
     isModalOpen: false,
     isModalOpen1: false,
@@ -56,6 +57,7 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
 
   return (
     <div>
+    
       <div className={styles.work_profile}>
         <div className={styles.profile_intro}>
           <div className={styles.profile_img}>
@@ -83,6 +85,7 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
             <button className={styles.profile_btn} id={styles.btn1}>
               More Details
             </button>
+            
             <button
               className={styles.profile_btn}
               id={styles.btn2}
@@ -90,6 +93,7 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
             >
               Book Service
             </button>
+           
           </div>
         </div>
       </div>
@@ -107,14 +111,14 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
                   <p>No of. Booking Completed: {bookings}</p>
                 </CardText>
                 <center>
-                  <Button
+                  <button
                     onClick={() => {
                       toggleModal();
                       toggleModal1();
                     }}
                   >
                     Book Service
-                  </Button>
+                  </button>
                 </center>
               </CardBody>
             </Card>
@@ -144,7 +148,17 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
                 <br />
               </center>
               <center>
-                <Button onClick={toggleModal1}>Confirm Booking</Button>
+                <form action='../../../../book_services' method='post'>
+                  <div style={{display:`none`}}>
+                  <input type="text" value={name}  name="name"/>
+                  <input type="text" value={type}  name="type"/>
+                  <input type="text" value={charge}  name="charge"/>
+                  <input type="text" value={experience}  name="experience"/>
+                  <input type="text" value={bookings}  name="bookings"/>
+                  <input type="text" value={contact}  name="contact"/>
+                  </div>
+                <button  type="submit">Confirm Booking</button>
+                </form>
               </center>
             </Card>
           </div>
