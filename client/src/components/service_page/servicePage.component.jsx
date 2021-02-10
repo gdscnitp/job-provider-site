@@ -155,7 +155,7 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
                   <input type="text" value={charge}  name="charge"/>
                   <input type="text" value={experience}  name="experience"/>
                   <input type="text" value={bookings}  name="bookings"/>
-                  <input type="text" value={contact}  name="contact"/>
+                  <input type="text" value={"+916423846823"}  name="contact"/>
                   </div>
                 <button  type="submit">Confirm Booking</button>
                 </form>
@@ -259,6 +259,71 @@ class ServicePage extends React.Component {
             charge='100'
             rating='5'
           />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          
         </div>
       </div>
     );

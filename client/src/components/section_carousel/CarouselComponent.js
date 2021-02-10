@@ -26,7 +26,7 @@ const responsive = {
 const CardItem = ({ image, header, para }) => (
   <div className="box">
     <div className="box-image">
-      <img src={image} alt="" />
+      <img src={image} alt="" className="img-fluid d-block w-100" />
     </div>
     <div className="box-content">
       <h2 className="box-header">{header}</h2>
