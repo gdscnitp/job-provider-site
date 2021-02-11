@@ -1,7 +1,7 @@
 //Class
 import React, { useState } from 'react';
 import {
-  Button,
+  // Button,
   Label,
   Input,
   Modal,
@@ -12,9 +12,26 @@ import {
   CardBody,
 } from 'reactstrap';
 import styles from './servicePage.module.css';
+
+import Frame from '../../assests/Frame.png'
+import profile_star from '../../assests/profile_star.png'
 import axios from 'axios';
 
-const WorkProfile = ({ name, experience, type, bookings, charge }) => {
+const Stars = ({n}) => {
+  let stars = []
+  for (let i = 1; i <= n; ++i) {
+    stars.push(<img src={profile_star} key={i} alt="rating"></img>)
+  }
+
+  return (
+    <div className="Stars">
+      {stars}
+    </div>
+  )
+}
+
+const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
+
   const [state, setState] = useState({
     isModalOpen: false,
     isModalOpen1: false,
@@ -37,12 +54,18 @@ const WorkProfile = ({ name, experience, type, bookings, charge }) => {
     });
   };
 
+
   return (
     <div>
+    
       <div className={styles.work_profile}>
         <div className={styles.profile_intro}>
-          <div className={styles.profile_img}>{/* Put Image tag here */}</div>
-          <div className={styles.profile_rating}>Rating</div>
+          <div className={styles.profile_img}>
+            <img id={styles.profile_image} src={Frame} alt="profile-img" />
+          </div>
+          <div className={styles.profile_rating}>
+            <Stars n={rating} />
+          </div>
         </div>
         <div className={styles.profile_details}>
           <div className={styles.profile_info}>
@@ -62,6 +85,7 @@ const WorkProfile = ({ name, experience, type, bookings, charge }) => {
             <button className={styles.profile_btn} id={styles.btn1}>
               More Details
             </button>
+            
             <button
               className={styles.profile_btn}
               id={styles.btn2}
@@ -69,6 +93,7 @@ const WorkProfile = ({ name, experience, type, bookings, charge }) => {
             >
               Book Service
             </button>
+           
           </div>
         </div>
       </div>
@@ -86,14 +111,14 @@ const WorkProfile = ({ name, experience, type, bookings, charge }) => {
                   <p>No of. Booking Completed: {bookings}</p>
                 </CardText>
                 <center>
-                  <Button
+                  <button
                     onClick={() => {
                       toggleModal();
                       toggleModal1();
                     }}
                   >
                     Book Service
-                  </Button>
+                  </button>
                 </center>
               </CardBody>
             </Card>
@@ -123,7 +148,17 @@ const WorkProfile = ({ name, experience, type, bookings, charge }) => {
                 <br />
               </center>
               <center>
-                <Button onClick={toggleModal1}>Confirm Booking</Button>
+                <form action='../../../../book_services' method='post'>
+                  <div style={{display:`none`}}>
+                  <input type="text" value={name}  name="name"/>
+                  <input type="text" value={type}  name="type"/>
+                  <input type="text" value={charge}  name="charge"/>
+                  <input type="text" value={experience}  name="experience"/>
+                  <input type="text" value={bookings}  name="bookings"/>
+                  <input type="text" value={"+916423846823"}  name="contact"/>
+                  </div>
+                <button  type="submit">Confirm Booking</button>
+                </form>
               </center>
             </Card>
           </div>
@@ -196,7 +231,7 @@ class ServicePage extends React.Component {
           </button>
         </div>
         <div className={styles.profle_div}>
-          <div className={styles.profile_sort}>
+          {/* <div className={styles.profile_sort}>
             <select name='type' id={styles.sort}>
               <option value=''>Sort By</option>
               <option value='name'>Name</option>
@@ -204,7 +239,7 @@ class ServicePage extends React.Component {
               <option value='type'>Type</option>
               <option value='charge'>Charge</option>
             </select>
-          </div>
+          </div> */}
 
           {/* Add as many WorkProfile component by passing props */}
           {this.state.workers.map((worker) => (
@@ -222,7 +257,73 @@ class ServicePage extends React.Component {
             type='Barber'
             bookings='23'
             charge='100'
+            rating='5'
           />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          <WorkProfile
+            name='Test'
+            experience='2'
+            type='Barber'
+            bookings='23'
+            charge='100'
+            rating='5'
+          />
+          
         </div>
       </div>
     );

@@ -85,7 +85,7 @@ function Footer() {
         </div>
       </div>
 
-      <div class="text-center py-3" style={{ fontSize: "1.1rem " }}>
+      <div class="text-center py-3" style={{ fontSize: "1.1 rem " }}>
         @Worklink, All rights reserved
       </div>
     </div>
