@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>WorkLink</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -40,13 +40,18 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: "en"
-                },"google_translate_element")
-            }
-        </script>
-        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+          },
+          'google_translate_element'
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
   </body>
 </html>
