@@ -11,18 +11,17 @@ function Navbar() {
         variant="dark"
         className="navbar"
       >
-        <ReactBootStrap.Navbar.Brand href="/" className="brand-logo">
-          WorkLink
+        <ReactBootStrap.Navbar.Brand className="brand-logo">
+          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+            WorkLink
+          </Link>
         </ReactBootStrap.Navbar.Brand>
         <span id="google_translate_element"></span>
         <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
           <ReactBootStrap.Nav className="ml-auto">
-            <NavLink to="/" className="nav-option nav-link">
-              Home
-            </NavLink>
-            <NavLink to="contact" className="nav-option nav-link">
-              Contact Us
+            <NavLink to="best_services" className="nav-option nav-link active">
+              Best Services
             </NavLink>
             <NavLink to="/about_us" className="nav-option nav-link">
               About Us

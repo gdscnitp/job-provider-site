@@ -33,37 +33,37 @@ export default function MainCarousel() {
         <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
-            src={require("../../assests/image 1.jpg")}
+            src={require("../../assests/elec.jpg")}
             alt="First slide"
             style={{ width: "", height: "" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Electrician</h3>
+            <p>Plays with electrons!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
-            src={require("../../assests/image 1.jpg")}
+            src={require("../../assests/weld.jpg")}
             alt="First slide"
             style={{ width: "", height: "" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Blacksmith</h3>
+            <p>Cuts through metal!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ width: "", height: "" }}>
           <img
             className="d-block w-100 img-fluid"
-            src={require("../../assests/image 1.jpg")}
+            src={require("../../assests/paint.jpg")}
             alt="First slide"
             style={{ width: "", height: "" }}
           />
           <Carousel.Caption style={{ bottom: "50%" }}>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Construction Worker</h3>
+            <p>Ever heard of Bob the Builder?</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
