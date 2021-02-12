@@ -22,7 +22,9 @@ class LogIn extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        
         alert("succesfully sign in!!")
+
         this.setState({
             email: "",
             password: ""
