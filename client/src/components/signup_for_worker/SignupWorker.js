@@ -82,7 +82,6 @@ class SignUpForWorker extends Component {
 					console.log(this.context);
 					console.log(localStorage.getItem("userData"));
 				})
-				.then(() => {})
 				.catch((err) => {
 					if (err.response) {
 						console.log(err.response);
@@ -211,7 +210,12 @@ class SignUpForWorker extends Component {
 						</div>
 					</div>
 				) : (
-					<h1>User Already Logged In </h1>
+					<div
+						className="d-flex justify-content-center align-items-center"
+						style={{ height: `80vh` }}
+					>
+						<h1>User Already Logged in</h1>
+					</div>
 				)}
 			</div>
 		);
