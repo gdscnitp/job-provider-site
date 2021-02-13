@@ -79,8 +79,9 @@ class SignUpForWorker extends Component {
 				})
 				.then((res) => {
 					alert("Successfully signed up");
-					console.log(this.context);
-					console.log(localStorage.getItem("userData"));
+					// console.log(this.context);
+					// console.log(localStorage.getItem("userData"));
+					this.props.history.push("/best_services");
 				})
 				.catch((err) => {
 					if (err.response) {

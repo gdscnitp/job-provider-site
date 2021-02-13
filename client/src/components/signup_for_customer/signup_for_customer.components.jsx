@@ -3,7 +3,6 @@ import "semantic-ui-css/semantic.min.css";
 import "./signup_for_customer.style.css";
 import { Button, Form, TextArea } from "semantic-ui-react";
 import { UserAuth } from "./../../userContext";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 // reusable component to render input field whenever needed
@@ -79,6 +78,8 @@ class SignUpForCustomer extends Component {
         .then((res) => {
           console.log(localStorage.getItem("userData"));
           alert("Successfully signed up");
+						this.props.history.push('/best_services')
+
           
         })
        
