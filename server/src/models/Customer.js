@@ -22,14 +22,19 @@ const CustomerSchema = new Schema(
 		name: {
 			type: String,
 			required: true,
+			trim: true,
 		},
-		type_of_work: {
-			type: String,
-		},
+
 		contact: {
 			type: String,
 			unique: true,
-		//	required: true,
+			validate: {
+				validator: function (v) {
+					return /\d{10}/.test(v);
+				},
+				message: (props) => `${props.value} is not a valid phone number!`,
+			},
+			//  required: [true, "User phone number required"],
 		},
 		email: {
 			type: String,
@@ -42,19 +47,30 @@ const CustomerSchema = new Schema(
 				}
 			},
 		},
-		cost_of_work: Number,
-		experience: String,
+
 		location: {
 			type: String,
-		//	required: true,
+			//  required: true,
 		},
-		address: String,
+		address: {
+			type: String,
+		},
 		password: {
 			type: String,
 			minlength: 7,
 			trim: true,
+			validate(value) {
+				if (value.toLowerCase().includes("password")) {
+					throw new Error('Password cannot contain "password"');
+				}
+			},
 		},
 		feedback: FeedbackSchema,
+
+		/*confirm_password: {
+        type: String,
+        required: true
+    },*/
 		tokens: [
 			{
 				token: {
@@ -78,7 +94,7 @@ CustomerSchema.methods.generateAuthToken = async function () {
 		process.env.JWT_SECRET
 	);
 
-	worker.tokens = worker.tokens.concat({ token });
+	// worker.tokens = worker.tokens.concat({ token });
 	await worker.save();
 
 	return token;

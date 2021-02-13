@@ -1,11 +1,13 @@
 import React from "react";
+
 //import Display from "./components/best_services/component.bestServices";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Redirect,
 } from "react-router-dom";
+import { UserProvider } from "./userContext";
 import Navbar from "./components/Navbar/Navbar";
 import SignUpForWorker from "./components/signup_for_worker/SignupWorker";
 import SignUpForCustomer from "./components/signup_for_customer/signup_for_customer.components.jsx";
@@ -34,26 +36,28 @@ import MainCarousel from "./components/set_preferences/MainCarousel";
 import SetPreferences from "./components/set_preferences/SetPreferences";*/
 
 function App() {
-  return (
-    <Router>
-      <Navbar />
-      {/* Our best services carousel (Kunal Prakash) */}
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/best_services" component={ServicePage} />
-        <Route path="/signup_worker" component={SignUpForWorker} />
-        <Route path="/signup_customer" component={SignUpForCustomer} />
-        <Route path="/profile_customer" component={CustomerProfile} />
-        <Route path="/about_us" component={AboutUS} />
-        <Route path="/profile_worker" component={ProfessionalProfile} />
-        <Route path="/sign_in" component={LogIn} />
-        <Redirect to="/" />
-      </Switch>
-      {/*Book Service Modal (Digvijay Srivastava), now integrated in services page*/}
+	return (
+		<UserProvider>
+			<Router>
+				<Navbar />
+				{/* Our best services carousel (Kunal Prakash) */}
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route path="/best_services" component={ServicePage} />
+					<Route path="/signup_worker" component={SignUpForWorker} />
+					<Route path="/signup_customer" component={SignUpForCustomer} />
+					<Route path="/profile_customer" component={CustomerProfile} />
+					<Route path="/about_us" component={AboutUS} />
+					<Route path="/profile_worker" component={ProfessionalProfile} />
+					<Route path="/sign_in" component={LogIn} />
+					<Redirect to="/" />
+				</Switch>
+				{/*Book Service Modal (Digvijay Srivastava), now integrated in services page*/}
 
-      <Footer />
-    </Router>
-  );
+				<Footer />
+			</Router>
+		</UserProvider>
+	);
 }
 
 export default App;
