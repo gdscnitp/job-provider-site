@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "semantic-ui-css/semantic.min.css";
 import "./signup_for_customer.style.css";
 import { Button, Form, TextArea } from "semantic-ui-react";
+import { UserAuth } from "./../../userContext";
 import axios from "axios";
 
 // reusable component to render input field whenever needed
@@ -28,6 +29,10 @@ const InputForm = ({ label, name, type, placeholder, textArea, ...props }) => (
 );
 
 class SignUpForCustomer extends Component {
+ 
+  static contextType = UserAuth;
+  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -63,19 +68,37 @@ class SignUpForCustomer extends Component {
       });
       console.log(data);
       axios
-        .post("/api/signup_customer", data)
+        .post("/signupCustomer", data)
+      .then(async (res) => {
+					console.log(res.data);
+					const customer = res.data.customer;
+					const token = res.data.token;
+					this.context.login(customer._id, customer.name, token, "customer");
+				})
         .then((res) => {
-          console.log(res.data);
+          console.log(localStorage.getItem("userData"));
+          alert("Successfully signed up");
+						this.props.history.push('/best_services')
+
+          
         })
-        .catch((error) => {
-          console.log(error);
-        });
+       
+       	.catch((err) => {
+					if (err.response) {
+						console.log(err.response);
+					} else if (err.request) {
+						console.log(err.request);
+					} else {
+						console.log(err);
+					}
+				});
     }
   };
 
   render() {
     return (
-      <div className="form-div">
+      <div>
+        {this.context.isCustomer === false?<div className="form-div">
         <h1 className="form-header">Sign Up (Customer)</h1>
         <div className="form-component">
           <Form id="form">
@@ -186,6 +209,7 @@ class SignUpForCustomer extends Component {
             </Button>
           </Form>
         </div>
+      </div>:<div className='d-flex justify-content-center align-items-center' style={{height:`80vh`} }><h1>User Already Logged in</h1></div>}
       </div>
     );
   }

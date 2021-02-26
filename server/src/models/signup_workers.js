@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+const mongoose = require('mongoose');
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 //feedback Schema
 
@@ -23,7 +23,7 @@ const workerSchema = new mongoose.Schema({
   },
   type_of_work: {
     type: String,
-  //  required: true,
+    //  required: true,
     trim: true,
   },
   contact: {
@@ -35,7 +35,7 @@ const workerSchema = new mongoose.Schema({
       },
       message: (props) => `${props.value} is not a valid phone number!`,
     },
-  //  required: [true, "User phone number required"],
+    //  required: [true, "User phone number required"],
   },
   email: {
     type: String,
@@ -44,7 +44,7 @@ const workerSchema = new mongoose.Schema({
     lowercase: true,
     validate(value) {
       if (!validator.isEmail(value)) {
-        throw new Error("Email is invalid");
+        throw new Error('Email is invalid');
       }
     },
   },
@@ -52,7 +52,7 @@ const workerSchema = new mongoose.Schema({
     type: Number,
     validate(value) {
       if (value < 0) {
-        throw new Error("Cost must be a postive number");
+        throw new Error('Cost must be a postive number');
       }
     },
   },
@@ -61,7 +61,7 @@ const workerSchema = new mongoose.Schema({
   },
   location: {
     type: String,
-  //  required: true,
+    //  required: true,
   },
   address: {
     type: String,
@@ -71,17 +71,17 @@ const workerSchema = new mongoose.Schema({
     minlength: 7,
     trim: true,
     validate(value) {
-      if (value.toLowerCase().includes("password")) {
+      if (value.toLowerCase().includes('password')) {
         throw new Error('Password cannot contain "password"');
       }
     },
   },
   feedback: FeedbackSchema,
 
-  confirm_password: {
+  /*confirm_password: {
         type: String,
         required: true
-    },
+    },*/
   tokens: [
     {
       token: {
@@ -92,31 +92,31 @@ const workerSchema = new mongoose.Schema({
     },
   ],
   avatar: {
-      type: Buffer
-  }
+    type: Buffer,
+  },
 });
 
 workerSchema.methods.generateAuthToken = async function () {
   const worker = this;
-  const token = jwt.sign({ _id: worker._id.toString() }, "thisismynewcourse");
+  const token = jwt.sign({ _id: worker._id.toString() }, 'thisismynewcourse');
 
-  worker.tokens = worker.tokens.concat({ token });
+  // worker.tokens = worker.tokens.concat({ token });
   await worker.save();
 
   return token;
 };
 
 // Hash the plain text password before saving
-workerSchema.pre("save", async function (next) {
+workerSchema.pre('save', async function (next) {
   const worker = this;
 
-  if (worker.isModified("password")) {
+  if (worker.isModified('password')) {
     worker.password = await bcrypt.hash(worker.password, 8);
   }
 
   next();
 });
 
-const Worker = mongoose.model("Worker", workerSchema);
+const Worker = mongoose.model('Worker', workerSchema);
 
 module.exports = Worker;
