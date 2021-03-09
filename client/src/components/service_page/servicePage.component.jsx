@@ -13,25 +13,20 @@ import {
 } from 'reactstrap';
 import styles from './servicePage.module.css';
 
-import Frame from '../../assests/Frame.png'
-import profile_star from '../../assests/profile_star.png'
+import Frame from '../../assests/Frame.png';
+import profile_star from '../../assests/profile_star.png';
 import axios from 'axios';
 
-const Stars = ({n}) => {
-  let stars = []
+const Stars = ({ n }) => {
+  let stars = [];
   for (let i = 1; i <= n; ++i) {
-    stars.push(<img src={profile_star} key={i} alt="rating"></img>)
+    stars.push(<img src={profile_star} key={i} alt='rating'></img>);
   }
 
-  return (
-    <div className="Stars">
-      {stars}
-    </div>
-  )
-}
+  return <div className='Stars'>{stars}</div>;
+};
 
 const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
-
   const [state, setState] = useState({
     isModalOpen: false,
     isModalOpen1: false,
@@ -54,14 +49,12 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
     });
   };
 
-
   return (
     <div>
-    
       <div className={styles.work_profile}>
         <div className={styles.profile_intro}>
           <div className={styles.profile_img}>
-            <img id={styles.profile_image} src={Frame} alt="profile-img" />
+            <img id={styles.profile_image} src={Frame} alt='profile-img' />
           </div>
           <div className={styles.profile_rating}>
             <Stars n={rating} />
@@ -85,7 +78,7 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
             <button className={styles.profile_btn} id={styles.btn1}>
               More Details
             </button>
-            
+
             <button
               className={styles.profile_btn}
               id={styles.btn2}
@@ -93,7 +86,6 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
             >
               Book Service
             </button>
-           
           </div>
         </div>
       </div>
@@ -149,15 +141,15 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
               </center>
               <center>
                 <form action='../../../../book_services' method='post'>
-                  <div style={{display:`none`}}>
-                  <input type="text" value={name}  name="name"/>
-                  <input type="text" value={type}  name="type"/>
-                  <input type="text" value={charge}  name="charge"/>
-                  <input type="text" value={experience}  name="experience"/>
-                  <input type="text" value={bookings}  name="bookings"/>
-                  <input type="text" value={"+916423846823"}  name="contact"/>
+                  <div style={{ display: `none` }}>
+                    <input type='text' value={name} name='name' />
+                    <input type='text' value={type} name='type' />
+                    <input type='text' value={charge} name='charge' />
+                    <input type='text' value={experience} name='experience' />
+                    <input type='text' value={bookings} name='bookings' />
+                    <input type='text' value={'+916423846823'} name='contact' />
                   </div>
-                <button  type="submit">Confirm Booking</button>
+                  <button type='submit'>Confirm Booking</button>
                 </form>
               </center>
             </Card>
@@ -249,6 +241,7 @@ class ServicePage extends React.Component {
               type={worker.type_of_work}
               bookings=''
               charge={worker.cost_of_work}
+              rating={worker.feedback.rating}
             />
           ))}
           <WorkProfile
@@ -323,7 +316,6 @@ class ServicePage extends React.Component {
             charge='100'
             rating='5'
           />
-          
         </div>
       </div>
     );
