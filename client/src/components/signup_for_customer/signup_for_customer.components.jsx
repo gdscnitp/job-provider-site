@@ -3,6 +3,7 @@ import "semantic-ui-css/semantic.min.css";
 import "./signup_for_customer.style.css";
 import { Button, Form, TextArea } from "semantic-ui-react";
 import { UserAuth } from "./../../userContext";
+import ErrorAlert from "./../../ErrorAlert";
 import axios from "axios";
 
 // reusable component to render input field whenever needed
@@ -32,9 +33,10 @@ class SignUpForCustomer extends Component {
  
   static contextType = UserAuth;
   
-
+ 
   constructor(props) {
     super(props);
+  
     this.state = {
       name: "",
       // type_of_work: "",
@@ -46,7 +48,12 @@ class SignUpForCustomer extends Component {
       address: "",
       password: "",
       confirm_password: "",
+      error:null
     };
+
+
+ 
+  
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -62,6 +69,7 @@ class SignUpForCustomer extends Component {
       let data = {};
       let keys = Object.keys(this.state);
       keys.forEach((element) => {
+        if(element!='error')
         if (this.state[element].length > 0) {
           data[element] = this.state[element];
         }
@@ -85,11 +93,15 @@ class SignUpForCustomer extends Component {
        
        	.catch((err) => {
 					if (err.response) {
-						console.log(err.response);
+						// console.log(err.response);
+            this.setState({error:err.response.data})
 					} else if (err.request) {
-						console.log(err.request);
+						// console.log(err.request);
+           this.setState({error:err.request.data})
 					} else {
-						console.log(err);
+						// console.log(err);
+            // this.setState({error : err.data})
+            this.setState({error:err.data})
 					}
 				});
     }
@@ -98,7 +110,8 @@ class SignUpForCustomer extends Component {
   render() {
     return (
       <div>
-        {this.context.isCustomer === false?<div className="form-div">
+        {this.context.isCustomer === false ? <>{this.state.error && <ErrorAlert ErrorMessage={this.state.error}/>}
+          <div className="form-div">
         <h1 className="form-header">Sign Up (Customer)</h1>
         <div className="form-component">
           <Form className="form">
@@ -209,7 +222,7 @@ class SignUpForCustomer extends Component {
             </Button>
           </Form>
         </div>
-      </div>:<div className='d-flex justify-content-center align-items-center' style={{height:`80vh`} }><h1>User Already Logged in</h1></div>}
+      </div></>:<div className='d-flex justify-content-center align-items-center' style={{height:`80vh`} }><h1>User Already Logged in</h1></div>}
       </div>
     );
   }

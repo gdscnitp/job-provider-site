@@ -37,7 +37,7 @@ router.post("/workers", async (req, res) => {
 		res.status(201).send({ worker, token });
 	} catch (e) {
 		console.log(e.message);
-		res.status(400).send(e);
+		res.status(400).send(e.message);
 	}
 });
 

@@ -21,7 +21,8 @@ const CustomerSchema = new Schema(
 	{
 		name: {
 			type: String,
-			required: true,
+			required: [true, "Enter your Name to proceed"],
+
 			trim: true,
 		},
 
@@ -34,7 +35,7 @@ const CustomerSchema = new Schema(
 				},
 				message: (props) => `${props.value} is not a valid phone number!`,
 			},
-			//  required: [true, "User phone number required"],
+			required: [true, "Enter your contact number to proceed"],
 		},
 		email: {
 			type: String,
@@ -46,6 +47,7 @@ const CustomerSchema = new Schema(
 					throw new Error("Email is invalid");
 				}
 			},
+			required: [true, "Email id is required to proceed"],
 		},
 
 		location: {
@@ -64,6 +66,7 @@ const CustomerSchema = new Schema(
 					throw new Error('Password cannot contain "password"');
 				}
 			},
+			required: [true, "Please Enter a Password to proceed"],
 		},
 		feedback: FeedbackSchema,
 

@@ -152,7 +152,8 @@ router.post("/signupCustomer", async (req, res) => {
 		//res.json(worker)
 		res.status(201).send({ customer, token });
 	} catch (e) {
-		console.log(e.message);
+		// console.log(Object.keys(e.errors));
+		console.log(e);
 		res.status(400).send(e.message);
 	}
 });
