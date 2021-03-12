@@ -41,6 +41,8 @@ class LogIn extends React.Component {
 					.then((res) => {
 						alert("Successfully signed in");
 						console.log(this.context);
+						this.props.history.push('/best_services')
+
 						// console.log(localStorage.getItem("userData"));
 					})
 					.catch((err) => {

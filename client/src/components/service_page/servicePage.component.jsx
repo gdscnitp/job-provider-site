@@ -57,7 +57,8 @@ const WorkProfile = ({ name, experience, type, bookings, charge, rating }) => {
             <img id={styles.profile_image} src={Frame} alt='profile-img' />
           </div>
           <div className={styles.profile_rating}>
-            <Stars n={rating} />
+            {rating && <Stars n={rating} /> }
+           
           </div>
         </div>
         <div className={styles.profile_details}>
@@ -193,15 +194,23 @@ class ServicePage extends React.Component {
   getWorker = async () => {
     try {
       const res = await axios.get('/workers');
+      // console.log("response from the server : ");
+      // console.log(res.data);
       this.setState({ workers: res.data });
-      console.log(res.data);
+      // console.log(res.data);
+      console.log(this.state.workers);
     } catch (error) {
       console.log(error.response.data);
     }
   };
 
-  render() {
+  componentDidMount() {
     this.getWorker();
+  }
+
+
+  render() {
+    // this.getWorker();
     return (
       <div id={styles.service_page}>
         {/* <nav className={styles.nav_bar} /> */}
@@ -235,13 +244,13 @@ class ServicePage extends React.Component {
 
           {/* Add as many WorkProfile component by passing props */}
           {this.state.workers.map((worker) => (
-            <WorkProfile
+            <WorkProfile key={worker._id}
               name={worker.name}
               experience={worker.experience}
               type={worker.type_of_work}
               bookings=''
               charge={worker.cost_of_work}
-              rating={worker.feedback.rating}
+              rating={worker.feedback ? worker.feedback.rating : null}
             />
           ))}
           <WorkProfile

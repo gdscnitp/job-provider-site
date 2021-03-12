@@ -101,7 +101,7 @@ class SignUpForCustomer extends Component {
         {this.context.isCustomer === false?<div className="form-div">
         <h1 className="form-header">Sign Up (Customer)</h1>
         <div className="form-component">
-          <Form id="form">
+          <Form className="form">
             <InputForm
               name="name"
               value={this.state.name}
