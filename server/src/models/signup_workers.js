@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const Schema = mongoose.Schema;
 //feedback Schema
 
-const FeedbackSchema = new mongoose.Schema({
+const FeedbackSchema = Schema({
 	rating: {
 		type: Number,
 		required: true,
@@ -15,15 +15,10 @@ const FeedbackSchema = new mongoose.Schema({
 	review: String,
 });
 
-const workerSchema = new mongoose.Schema({
+const WorkerSchema = Schema({
 	name: {
 		type: String,
 		required: [true, "Enter your Name to proceed"],
-		trim: true,
-	},
-	type_of_work: {
-		type: String,
-		required: [true, "Enter the type of your work "],
 		trim: true,
 	},
 	contact: {
@@ -50,6 +45,12 @@ const workerSchema = new mongoose.Schema({
 
 		required: [true, "Email id is required to proceed"],
 	},
+	type_of_work: {
+		type: String,
+		required: [true, "Enter the type of your work "],
+		trim: true,
+	},
+
 	cost_of_work: {
 		type: Number,
 		validate(value) {
@@ -70,20 +71,22 @@ const workerSchema = new mongoose.Schema({
 	},
 	password: {
 		type: String,
-		minlength: 7,
+		minlength: [7, "Password length should be grater then 7 "],
 		trim: true,
 		validate(value) {
 			if (value.toLowerCase().includes("password")) {
 				throw new Error('Password cannot contain "password"');
 			}
 		},
+		required: [true, "Please Enter a Password to proceed"],
+
 	},
 	feedback: FeedbackSchema,
 
 	/*confirm_password: {
-        type: String,
-        required: true
-    },*/
+		  type: String,
+		  required: true
+	 },*/
 	tokens: [
 		{
 			token: {
@@ -98,7 +101,7 @@ const workerSchema = new mongoose.Schema({
 	},
 });
 
-workerSchema.methods.generateAuthToken = async function () {
+WorkerSchema.methods.generateAuthToken = async function () {
 	const worker = this;
 	const token = jwt.sign({ _id: worker._id.toString() }, "thisismynewcourse");
 
@@ -109,7 +112,7 @@ workerSchema.methods.generateAuthToken = async function () {
 };
 
 // Hash the plain text password before saving
-workerSchema.pre("save", async function (next) {
+WorkerSchema.pre("save", async function (next) {
 	const worker = this;
 
 	if (worker.isModified("password")) {
@@ -119,6 +122,6 @@ workerSchema.pre("save", async function (next) {
 	next();
 });
 
-const Worker = mongoose.model("Worker", workerSchema);
+const Worker = mongoose.model("Worker", WorkerSchema);
 
 module.exports = Worker;

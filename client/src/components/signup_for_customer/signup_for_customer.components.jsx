@@ -30,13 +30,13 @@ const InputForm = ({ label, name, type, placeholder, textArea, ...props }) => (
 );
 
 class SignUpForCustomer extends Component {
- 
+
   static contextType = UserAuth;
-  
- 
+
+
   constructor(props) {
     super(props);
-  
+
     this.state = {
       name: "",
       // type_of_work: "",
@@ -48,12 +48,9 @@ class SignUpForCustomer extends Component {
       address: "",
       password: "",
       confirm_password: "",
-      error:null
+      error: null
     };
-
-
- 
-  
+		this.ScrollOnError = this.ScrollOnError.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -61,6 +58,15 @@ class SignUpForCustomer extends Component {
     let change = { [e.target.name]: e.target.value };
     this.setState(change);
   }
+  
+	ScrollOnError = () => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		})
+	}
+
 
   onSubmit = () => {
     if (this.state.password !== this.state.confirm_password) {
@@ -69,39 +75,42 @@ class SignUpForCustomer extends Component {
       let data = {};
       let keys = Object.keys(this.state);
       keys.forEach((element) => {
-        if(element!='error')
-        if (this.state[element].length > 0) {
-          data[element] = this.state[element];
-        }
+        if (element !== 'error')
+          if (this.state[element].length > 0) {
+            data[element] = this.state[element];
+          }
       });
       console.log(data);
       axios
         .post("/signupCustomer", data)
-      .then(async (res) => {
-					console.log(res.data);
-					const customer = res.data.customer;
-					const token = res.data.token;
-					this.context.login(customer._id, customer.name, token, "customer");
-				})
+        .then(async (res) => {
+          console.log(res.data);
+          const customer = res.data.customer;
+          const token = res.data.token;
+          this.context.login(customer._id, customer.name, token, "customer");
+        })
         .then((res) => {
           console.log(localStorage.getItem("userData"));
           alert("Successfully signed up");
-						this.props.history.push('/best_services')
+          this.props.history.push('/best_services')
 
-          
+
         })
-       
-       	.catch((err) => {
+
+        	.catch((err) => {
 					if (err.response) {
 						// console.log(err.response);
-            this.setState({error:err.response.data})
+						this.setState({ error: err.response.data });
+						this.ScrollOnError();
 					} else if (err.request) {
 						// console.log(err.request);
-           this.setState({error:err.request.data})
+						this.setState({ error: err.request.data });
+						this.ScrollOnError();
 					} else {
 						// console.log(err);
-            // this.setState({error : err.data})
-            this.setState({error:err.data})
+						// this.setState({error : err.data})
+						this.setState({ error: err.data });
+						this.ScrollOnError();
 					}
 				});
     }
@@ -110,22 +119,22 @@ class SignUpForCustomer extends Component {
   render() {
     return (
       <div>
-        {this.context.isCustomer === false ? <>{this.state.error && <ErrorAlert ErrorMessage={this.state.error}/>}
+        {this.context.isCustomer === false ? <>{this.state.error && <ErrorAlert ErrorMessage={this.state.error} />}
           <div className="form-div">
-        <h1 className="form-header">Sign Up (Customer)</h1>
-        <div className="form-component">
-          <Form className="form">
-            <InputForm
-              name="name"
-              value={this.state.name}
-              type="text"
-              onChange={this.handleChange}
-              placeholder="Name"
-              label="Name"
-              required
-            />
+            <h1 className="form-header">Sign Up (Customer)</h1>
+            <div className="form-component">
+              <Form className="form" onSubmit={this.onSubmit}>
+                <InputForm
+                  name="name"
+                  value={this.state.name}
+                  type="text"
+                  onChange={this.handleChange}
+                  placeholder="Name"
+                  label="Name"
+                  required
+                />
 
-            {/* <InputForm
+                {/* <InputForm
               name="type_of_work"
               value={this.state.type_of_work}
               type="text"
@@ -136,27 +145,28 @@ class SignUpForCustomer extends Component {
               textArea="TextArea"
             /> */}
 
-            <InputForm
-              name="contact"
-              value={this.state.contact}
-              type="number"
-              placeholder="Contact Number"
-              onChange={this.handleChange}
-              id="contact"
-              label="Contact"
-              required
-            />
+                <InputForm
+                  name="contact"
+                  value={this.state.contact}
+                  type="number"
+                  placeholder="Contact Number"
+                  onChange={this.handleChange}
+                  id="contact"
+                  label="Contact"
+                  required
+                />
 
-            <InputForm
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              type="email"
-              placeholder="Email"
-              label="Email"
-            />
+                <InputForm
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  type="email"
+                  placeholder="Email"
+                  label="Email"
+                  required
+                />
 
-            {/* <InputForm
+                {/* <InputForm
               name="cost_of_work"
               value={this.state.cost_of_work}
               type="number"
@@ -188,41 +198,41 @@ class SignUpForCustomer extends Component {
               required
             /> */}
 
-            <InputForm
-              name="address"
-              value={this.state.address}
-              type="text"
-              onChange={this.handleChange}
-              placeholder="Address"
-              label="Address"
-            />
+                <InputForm
+                  name="address"
+                  value={this.state.address}
+                  type="text"
+                  onChange={this.handleChange}
+                  placeholder="Address"
+                  label="Address"
+                />
 
-            <InputForm
-              name="password"
-              value={this.state.password}
-              type="password"
-              onChange={this.handleChange}
-              placeholder="Password"
-              label="Password"
-              required
-            />
+                <InputForm
+                  name="password"
+                  value={this.state.password}
+                  type="password"
+                  onChange={this.handleChange}
+                  placeholder="Password"
+                  label="Password"
+                  required
+                />
 
-            <InputForm
-              name="confirm_password"
-              value={this.state.confirm_password}
-              type="password"
-              placeholder="Confirm Password"
-              label=" Confirm Password"
-              onChange={this.handleChange}
-              required
-            />
+                <InputForm
+                  name="confirm_password"
+                  value={this.state.confirm_password}
+                  type="password"
+                  placeholder="Confirm Password"
+                  label=" Confirm Password"
+                  onChange={this.handleChange}
+                  required
+                />
 
-            <Button type="submit" id="button" onClick={this.onSubmit}>
-              Sign Up
+                <Button type="submit" id="button">
+                  Sign Up
             </Button>
-          </Form>
-        </div>
-      </div></>:<div className='d-flex justify-content-center align-items-center' style={{height:`80vh`} }><h1>User Already Logged in</h1></div>}
+              </Form>
+            </div>
+          </div></> : <div className='d-flex justify-content-center align-items-center' style={{ height: `80vh` }}><h1>User Already Logged in</h1></div>}
       </div>
     );
   }

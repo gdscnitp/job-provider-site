@@ -5,6 +5,7 @@ mongoose
 	.connect(process.env.MainDB, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
+		autoIndex: true, // helpes to get rid of unique property problem in mongoose schema
 		useCreateIndex: true,
 	})
 	.then(() => console.log(`Main Database connected successfully`))

@@ -34,7 +34,7 @@ class SignUpForWorker extends Component {
 		super(props);
 		this.state = {
 			name: "",
-			work: "",
+			type_of_work: "",
 			contact: "",
 			email: "",
 			cost: "",
@@ -47,6 +47,15 @@ class SignUpForWorker extends Component {
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.ScrollOnError = this.ScrollOnError.bind(this);
+	}
+
+	ScrollOnError = () => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth'
+		})
 	}
 
 	handleChange = (e) => {
@@ -57,16 +66,11 @@ class SignUpForWorker extends Component {
 	handleSubmit(event) {
 		if (this.state.password !== this.state.confirm_password) {
 			alert("Password does not match !!! \n Try Again");
-		} else if (
-			this.state.password.length < 7 ||
-			this.state.confirm_password.length < 7
-		) {
-			return;
 		} else {
 			let data = {};
 			let keys = Object.keys(this.state);
 			keys.forEach((element) => {
-				if (element != "error")
+				if (element !== "error")
 					if (this.state[element].length > 0) {
 						data[element] = this.state[element];
 					}
@@ -81,22 +85,24 @@ class SignUpForWorker extends Component {
 					this.context.login(worker._id, worker.name, token, "worker");
 				})
 				.then((res) => {
+					console.log(localStorage.getItem("userData"));
 					alert("Successfully signed up");
-					// console.log(this.context);
-					// console.log(localStorage.getItem("userData"));
-					this.props.history.push("/best_services");
+					this.props.history.push('/best_services')
 				})
 				.catch((err) => {
 					if (err.response) {
 						// console.log(err.response);
 						this.setState({ error: err.response.data });
+						this.ScrollOnError();
 					} else if (err.request) {
 						// console.log(err.request);
 						this.setState({ error: err.request.data });
+						this.ScrollOnError();
 					} else {
 						// console.log(err);
 						// this.setState({error : err.data})
 						this.setState({ error: err.data });
+						this.ScrollOnError();
 					}
 				});
 		}
@@ -123,8 +129,8 @@ class SignUpForWorker extends Component {
 									/>
 
 									<InputForm
-										name="work"
-										value={this.state.work}
+										name="type_of_work"
+										value={this.state.type_of_work}
 										type="text"
 										placeholder="For Example - Plumber, Carpenter, Painter"
 										onChange={this.handleChange}
@@ -151,6 +157,7 @@ class SignUpForWorker extends Component {
 										onChange={this.handleChange}
 										placeholder="Email"
 										label="Email"
+										required
 									/>
 
 									<InputForm

@@ -50,16 +50,16 @@ const CustomerSchema = new Schema(
 			required: [true, "Email id is required to proceed"],
 		},
 
-		location: {
-			type: String,
-			//  required: true,
-		},
+		// location: {
+		// 	type: String,
+		// 	//  required: true,
+		// },
 		address: {
 			type: String,
 		},
 		password: {
 			type: String,
-			minlength: 7,
+			minlength: [7, "Password length should be grater then 7 "],
 			trim: true,
 			validate(value) {
 				if (value.toLowerCase().includes("password")) {
@@ -71,9 +71,9 @@ const CustomerSchema = new Schema(
 		feedback: FeedbackSchema,
 
 		/*confirm_password: {
-        type: String,
-        required: true
-    },*/
+		  type: String,
+		  required: true
+	 },*/
 		tokens: [
 			{
 				token: {
