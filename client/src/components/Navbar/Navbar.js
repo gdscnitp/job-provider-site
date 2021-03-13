@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import * as ReactBootStrap from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { UserAuth } from "./../../userContext";
+import { useHistory } from "react-router-dom";
 
 function Navbar() {
 	const { isWorker, isCustomer, logout } = useContext(UserAuth);
+	let history = useHistory();
 	return (
 		<div>
 			<ReactBootStrap.Navbar
@@ -36,7 +38,7 @@ function Navbar() {
 						>
 							{isWorker ? (
 								<>
-									<ReactBootStrap.NavDropdown.Item>
+									<ReactBootStrap.NavDropdown.Item as="div">
 										<Link to="/profile_worker" className="dropdown-item">
 											Worker Profile
 										</Link>
@@ -49,7 +51,7 @@ function Navbar() {
 							{isCustomer ? (
 								<>
 									{" "}
-									<ReactBootStrap.NavDropdown.Item>
+									<ReactBootStrap.NavDropdown.Item as="div">
 										<Link to="/profile_customer" className="dropdown-item">
 											Customer Profile
 										</Link>
@@ -60,12 +62,12 @@ function Navbar() {
 							)}
 							{isWorker === false && isCustomer === false ? (
 								<>
-									<ReactBootStrap.NavDropdown.Item>
+									<ReactBootStrap.NavDropdown.Item as="div">
 										<Link to="/signup_worker" className="dropdown-item">
 											Worker Sign Up
 										</Link>
 									</ReactBootStrap.NavDropdown.Item>
-									<ReactBootStrap.NavDropdown.Item>
+									<ReactBootStrap.NavDropdown.Item as="div">
 										<Link to="/signup_customer" className="dropdown-item">
 											Customer Sign Up
 										</Link>
@@ -76,7 +78,7 @@ function Navbar() {
 							)}
 
 							<ReactBootStrap.NavDropdown.Divider />
-							<ReactBootStrap.NavDropdown.Item href="/signup_customer">
+							<ReactBootStrap.NavDropdown.Item as="div">
 								<Link to="/signup_customer" className="dropdown-item">
 									Other
 								</Link>
@@ -88,6 +90,8 @@ function Navbar() {
 							<ReactBootStrap.Button
 								onClick={() => {
 									logout();
+									history.push('/');
+
 								}}
 								className="btn btn-success btn-lg"
 							>

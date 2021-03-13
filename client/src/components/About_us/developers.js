@@ -1,51 +1,72 @@
-export const Developers = [{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-},{
-    name:"Your Name",
-    branch:"Your branch",
-    github:"github-id",
-    linkedin:"linkedin-id"
-}]
+export const Developers = [
+	{
+		id: 1,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 2,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 3,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 4,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 5,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 6,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 7,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 8,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 9,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+	{
+		id: 10,
+		name: "Your Name",
+		branch: "Your branch",
+		github: "github-id",
+		linkedin: "linkedin-id",
+	},
+];

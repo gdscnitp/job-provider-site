@@ -1,6 +1,7 @@
 const express = require("express");
 const Worker = require("../models/signup_workers");
 const router = new express.Router();
+const ErrorHandler = require("./../helper/dberrorhandler")
 
 var RateLimit = require("express-rate-limit");
 var limiter = new RateLimit({
@@ -9,6 +10,7 @@ var limiter = new RateLimit({
 });
 
 //Get all the workers
+
 //Public Route
 //Get /workers
 router.get("/workers", async (req, res) => {
@@ -23,7 +25,8 @@ router.get("/workers", async (req, res) => {
 router.use(limiter);
 
 router.post("/workers", async (req, res) => {
-	console.log("Hey");
+	// console.log("Hey");
+	// console.log(req.body);
 	const worker = new Worker(req.body);
 
 	try {
@@ -36,8 +39,9 @@ router.post("/workers", async (req, res) => {
 		//res.json(worker)
 		res.status(201).send({ worker, token });
 	} catch (e) {
-		console.log(e.message);
-		res.status(400).send(e);
+		// console.log(e.message);
+		let msg = ErrorHandler(e);
+		res.status(400).send(msg);
 	}
 });
 
