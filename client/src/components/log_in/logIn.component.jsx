@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./logIn.module.css";
 import axios from "axios";
+import ErrorAlert from "./../../ErrorAlert";
 import { UserAuth } from "./../../userContext";
 
 class LogIn extends React.Component {
@@ -11,6 +12,7 @@ class LogIn extends React.Component {
 			email: "",
 			password: "",
 			isWorker: false,
+			error: null
 		};
 	}
 
@@ -46,14 +48,17 @@ class LogIn extends React.Component {
 						// console.log(localStorage.getItem("userData"));
 					})
 					.catch((err) => {
-						if (err.response) {
-							console.log(err.response);
-						} else if (err.request) {
-							console.log(err.request);
-						} else {
-							console.log(err);
-						}
-					});
+					if (err.response) {
+						// console.log(err.response);
+						this.setState({ error: err.response.data });
+					} else if (err.request) {
+						// console.log(err.request);
+						this.setState({ error: err.request.data });
+					} else {
+						// console.log(err);
+						this.setState({ error: err.data });
+					}
+				});
             }
             else {
                 axios.post("/login/customer", {
@@ -73,14 +78,17 @@ class LogIn extends React.Component {
 						// console.log(localStorage.getItem("userData"));
 					})
 					.catch((err) => {
-						if (err.response) {
-							console.log(err.response);
-						} else if (err.request) {
-							console.log(err.request);
-						} else {
-							console.log(err);
-						}
-					});
+					if (err.response) {
+						// console.log(err.response);
+						this.setState({ error: err.response.data });
+					} else if (err.request) {
+						// console.log(err.request);
+						this.setState({ error: err.request.data });
+					} else {
+						// console.log(err);
+						this.setState({ error: err.data });
+					}
+				});
             }
 		}
 
@@ -103,7 +111,8 @@ class LogIn extends React.Component {
 						</div>
 
 						<div className={styles.form_div}>
-							<div className={styles.form_div_inner}>
+						<div className={styles.form_div_inner}>
+							{this.state.error && <ErrorAlert ErrorMessage={this.state.error}/>}
 								<h2 className={styles.form_h2}>SIGN IN</h2>
 
 								<form

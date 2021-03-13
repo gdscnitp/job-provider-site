@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import * as ReactBootStrap from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { UserAuth } from "./../../userContext";
+import { useHistory } from "react-router-dom";
 
 function Navbar() {
 	const { isWorker, isCustomer, logout } = useContext(UserAuth);
+	let history = useHistory();
 	return (
 		<div>
 			<ReactBootStrap.Navbar
@@ -88,6 +90,8 @@ function Navbar() {
 							<ReactBootStrap.Button
 								onClick={() => {
 									logout();
+									history.push('/');
+
 								}}
 								className="btn btn-success btn-lg"
 							>
